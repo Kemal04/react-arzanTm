@@ -1,0 +1,23 @@
+.bg-main {
+    background-color: #edf2f9 !important;
+}
+
+.dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.bg-dark-blue {
+    background-color: #292e34 !important;
+}
+
+.bg-dark-blue-footer {
+    background-color: #323840 !important;
+}
+
+.text-green {
+    color: #028D2A!important;
+}
