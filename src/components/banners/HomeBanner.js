@@ -1,7 +1,6 @@
 import React from 'react'
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import { Link } from 'react-router-dom';
 import banner from '../../assets/banners/home/1.png'
 
 const HomeBanner = () => {
@@ -10,7 +9,7 @@ const HomeBanner = () => {
         type: 'loop',
         perPage: 1,
         perMove: 1,
-        pagination: false,
+        pagination: true,
         autoplay: false,
     };
 
@@ -19,7 +18,7 @@ const HomeBanner = () => {
             <Splide options={options} hasTrack={false}>
                 <SplideTrack className='row g-0'>
                     <SplideSlide className='col-lg-12 p-0'>
-                        <img src={banner} alt="banner" className='img-fluid' />
+                        <img src={banner} alt="banner" className='img-fluid' style={{ height: "430px" }} />
                     </SplideSlide>
                 </SplideTrack>
             </Splide>

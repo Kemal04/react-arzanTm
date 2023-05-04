@@ -19,5 +19,13 @@
 }
 
 .text-green {
-    color: #028D2A!important;
+    color: #0EC243!important;
+}
+
+.bg-green {
+    background-color: #0EC243!important;
+}
+
+.footer-rgba{
+    background-color: rgba(0, 0, 0, 0.7);
 }
