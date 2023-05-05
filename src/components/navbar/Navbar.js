@@ -1,8 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../context/ThemeContext';
 import { Link, NavLink } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/logo/logo.svg'
 import location from '../../assets/icons/location.svg'
 import search from '../../assets/icons/search.svg'

@@ -1,5 +1,6 @@
 import React from 'react'
 import HomeBanner from '../../../components/banners/HomeBanner'
+
 import haryt100 from '../../../assets/cards/posts/100haryt.png'
 import ynamdar from '../../../assets/cards/posts/ynamdar.png'
 import giper from '../../../assets/cards/posts/giper.png'
@@ -10,9 +11,11 @@ import nur_yupek from '../../../assets/cards/posts/nur-yupek.png'
 import yupekci from '../../../assets/cards/posts/yupekci.png'
 import lays from '../../../assets/cards/posts/lays.png'
 import coca_cola from '../../../assets/cards/posts/coca-cola.png'
+
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faEye } from '@fortawesome/free-solid-svg-icons'
+
 import img_1 from '../../../assets/cards/selected/1.png'
 import img_2 from '../../../assets/cards/selected/2.png'
 import img_3 from '../../../assets/cards/selected/3.png'
@@ -36,6 +39,16 @@ import cheap_8 from '../../../assets/cards/cheap/8.png'
 import cheap_9 from '../../../assets/cards/cheap/9.png'
 import cheap_10 from '../../../assets/cards/cheap/10.png'
 
+import offical_1 from '../../../assets/cards/offical/1.png'
+import offical_2 from '../../../assets/cards/offical/2.png'
+import offical_3 from '../../../assets/cards/offical/3.png'
+import offical_4 from '../../../assets/cards/offical/4.png'
+import offical_5 from '../../../assets/cards/offical/5.png'
+import offical_6 from '../../../assets/cards/offical/6.png'
+import offical_7 from '../../../assets/cards/offical/7.png'
+import offical_8 from '../../../assets/cards/offical/8.png'
+
+import mobile_banner from '../../../assets/banners/home/mobile-banner.png'
 
 const Home = () => {
     return (
@@ -225,7 +238,6 @@ const Home = () => {
             </div>
 
             {/* CHEAP */}
-
             <div className='container mt-2'>
                 <div className='d-flex justify-content-between align-items-center'>
                     <div className='h3'>Arzanladyşlar</div>
@@ -233,12 +245,229 @@ const Home = () => {
                 </div>
 
                 <div className='row justify-content-between mt-3'>
-                    <div className='col-auto'>
-                        <div className='card rounded-1'>
-                            <img src={cheap_1} alt="" />
-                        </div>      
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_1} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_2} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_3} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_4} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_5} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div className='row justify-content-between mt-1'>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_6} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_7} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_8} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_9} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <div className='card rounded-1' style={{ width: "230px" }}>
+                            <img src={cheap_10} alt="" className='img-fluid' />
+                            <div className='position-absolute p-2 end-0'>
+                                <div className='bg-green text-white small rounded-circle px-1 py-2'>23%</div>
+                            </div>
+                            <div className='card-body p-2'>
+                                <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit..</div>
+                                <div className='d-flex justify-content-between align-items-center mt-3'>
+                                    <div className='small text-secondary'>19.02.2022</div>
+                                    <div className='small text-secondary'>
+                                        <FontAwesomeIcon icon={faEye} className='me-2' />
+                                        121
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* RESMILER */}
+            <div className='container mt-3'>
+                <div className='d-flex justify-content-between align-items-center'>
+                    <div className='h3'>Täze resmiler</div>
+                    <Link to="/" className='bg-green text-white py-1 px-3 rounded-4 text-decoration-none'>Hemmesi <FontAwesomeIcon icon={faArrowRight} /></Link>
+                </div>
+
+                <div className='row justify-content-between g-0 mt-3'>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_1} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_2} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_3} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_4} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_5} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_6} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_7} alt="" className='img-fluid' />
+                    </div>
+                    <div className='col-auto mb-3'>
+                        <img src={offical_8} alt="" className='img-fluid' />
+                    </div>
+                </div>
+            </div>
+
+            {/* MOBILE BANNER */}   
+            <div className='container-fluid mt-5 p-0'>
+                <img src={mobile_banner} alt="" className='img-fluid w-100'/>
             </div>
         </>
     )
