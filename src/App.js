@@ -1,8 +1,12 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
-import { Home } from './pages/interface'
+
+import { Foto, FotoRead, Home } from './pages/interface'
+
 import { AdminNavbar, AdminSidebar, Footer, Navbar } from './components'
+
 import { Admin } from './pages/admin'
+
 import { ThemeContext } from './context/ThemeContext'
 
 const App = () => {
@@ -16,6 +20,9 @@ const App = () => {
 
                         <Route path='/' element={<HomeLayout />} >
                             <Route path='/' element={<Home />} />
+
+                            <Route path='/foto' element={<Foto />} />
+                            <Route path='/foto/arzanTm' element={<FotoRead />} />
                         </Route>
 
                         <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >

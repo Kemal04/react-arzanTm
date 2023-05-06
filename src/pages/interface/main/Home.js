@@ -226,7 +226,9 @@ const Home = () => {
                         <img src={top} alt="" className='img-fluid w-100' />
                     </div>
                     <div className='col-xl-6 mb-4'>
-                        <img src={foto} alt="" className='img-fluid w-100' />
+                        <Link to='/foto'>
+                            <img src={foto} alt="" className='img-fluid w-100' />
+                        </Link>
                     </div>
                     <div className='col-xl-6 mb-4'>
                         <img src={video} alt="" className='img-fluid w-100' />
@@ -465,9 +467,9 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* MOBILE BANNER */}   
+            {/* MOBILE BANNER */}
             <div className='container-fluid mt-5 p-0'>
-                <img src={mobile_banner} alt="" className='img-fluid w-100'/>
+                <img src={mobile_banner} alt="" className='img-fluid w-100' />
             </div>
         </>
     )
