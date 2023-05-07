@@ -1,5 +1,3 @@
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import banner from '../../../assets/banners/foto/1.png'
@@ -21,7 +19,6 @@ import mercedes_benz from '../../../assets/cards/posts/mercedes-benz.png'
 import gallery from '../../../assets/icons/gallery.svg'
 import eye from '../../../assets/icons/eye.png'
 
-
 const Foto = () => {
     return (
         <>
@@ -32,9 +29,8 @@ const Foto = () => {
             </div>
 
             <div className='container mt-2 '>
-                <div className='d-flex justify-content-between align-items-center'>
+                <div className='d-flex align-items-center'>
                     <div className='h3'>Surat <span className='text-green'>(+21)</span></div>
-                    <Link to="/" className='bg-green text-white py-1 px-3 rounded-4 text-decoration-none'>Hemmesi <FontAwesomeIcon icon={faArrowRight} /></Link>
                 </div>
 
                 <div className='my-3'>

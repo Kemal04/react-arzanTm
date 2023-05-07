@@ -231,7 +231,9 @@ const Home = () => {
                         </Link>
                     </div>
                     <div className='col-xl-6 mb-4'>
-                        <img src={video} alt="" className='img-fluid w-100' />
+                        <Link to='/video'>
+                            <img src={video} alt="" className='img-fluid w-100' />
+                        </Link>
                     </div>
                     <div className='col-xl-12 mb-4'>
                         <img src={offical} alt="" className='img-fluid w-100' />

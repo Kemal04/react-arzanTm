@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 
-import { Foto, FotoRead, Home } from './pages/interface'
+import { Foto, FotoRead, Home, Video } from './pages/interface'
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar } from './components'
 
@@ -23,6 +23,8 @@ const App = () => {
 
                             <Route path='/foto' element={<Foto />} />
                             <Route path='/foto/arzanTm' element={<FotoRead />} />
+
+                            <Route path='/video' element={<Video />} />
                         </Route>
 
                         <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
