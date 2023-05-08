@@ -19,13 +19,35 @@
 }
 
 .text-green {
-    color: #0EC243!important;
+    color: #0EC243 !important;
 }
 
 .bg-green {
-    background-color: #0EC243!important;
+    background-color: #0EC243 !important;
 }
 
-.footer-rgba{
+.btn-green {
+    background-color: #0EC243 !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.footer-rgba {
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: #fff !important;
+    background-color: #0EC243 !important;
+}
+
+.form-check-input:checked {
+    background-color: #0EC243 !important;
+    border-color: #0EC243 !important;
+}
+
+.form-check-input:focus {
+    border-color: #86fe8c!important;
+    box-shadow: 0 0 0 0.25rem rgba(14, 194, 67, .25)!important;
 }

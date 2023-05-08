@@ -3,7 +3,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 
 import { Foto, FotoRead, Home, Video } from './pages/interface'
 
-import { AdminNavbar, AdminSidebar, Footer, Navbar } from './components'
+import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
 import { Admin } from './pages/admin'
 
@@ -15,24 +15,25 @@ const App = () => {
 
     return (
         <>
-                <BrowserRouter>
-                    <Routes>
+            <BrowserRouter>
+                    <ScrollToTop />
+                <Routes>
 
-                        <Route path='/' element={<HomeLayout />} >
-                            <Route path='/' element={<Home />} />
+                    <Route path='/' element={<HomeLayout />} >
+                        <Route path='/' element={<Home />} />
 
-                            <Route path='/foto' element={<Foto />} />
-                            <Route path='/foto/arzanTm' element={<FotoRead />} />
+                        <Route path='/foto' element={<Foto />} />
+                        <Route path='/foto/arzanTm' element={<FotoRead />} />
 
-                            <Route path='/video' element={<Video />} />
-                        </Route>
+                        <Route path='/video' element={<Video />} />
+                    </Route>
 
-                        <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
-                            <Route path='' element={<Admin />} />
-                        </Route>
+                    <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
+                        <Route path='' element={<Admin />} />
+                    </Route>
 
-                    </Routes>
-                </BrowserRouter>
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }

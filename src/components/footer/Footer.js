@@ -13,41 +13,41 @@ const Footer = () => {
                 <div className='container'>
                     <div className='row align-items-center'>
                         <div className='col-xl-3'>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Habarlar</Link>
+                            <ul className="nav flex-column">
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Habarlar</Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Dükan</Link>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Dükan</Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Galereýa</Link>
-                                </li>
-                            </ul>
-                        </div>
-                        <div className='col-xl-3'>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Top Hasaplar</Link>
-                                </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Resmiler</Link>
-                                </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Saýlananlar</Link>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Galereýa</Link>
                                 </li>
                             </ul>
                         </div>
                         <div className='col-xl-3'>
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Ulanyş düzgünleri</Link>
+                            <ul className="nav flex-column">
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Top Hasaplar</Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Habarlaşmak</Link>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Resmiler</Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link class="nav-link" style={{ color: "#AAAAAA" }}>Biz barada</Link>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Saýlananlar</Link>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className='col-xl-3'>
+                            <ul className="nav flex-column">
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Ulanyş düzgünleri</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Habarlaşmak</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" style={{ color: "#AAAAAA" }}>Biz barada</Link>
                                 </li>
                             </ul>
                         </div>
