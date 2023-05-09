@@ -9,18 +9,22 @@ import globus from '../../assets/icons/globus.svg'
 import bell from '../../assets/icons/bell.svg'
 import logo_circle from '../../assets/icons/logo-circle.svg'
 import user from '../../assets/icons/user.svg'
+import user_bold from '../../assets/icons/user-bold.svg'
 import user_tick from '../../assets/icons/user-bold-tick.svg'
 import key from '../../assets/icons/key.svg'
 import not_see from '../../assets/icons/not-see.svg'
 import phone from '../../assets/icons/phone-bold.svg'
 
+import profile from '../../assets/icons/mikki.png'
+
+import wallet from '../../assets/icons/wallet.svg'
+import plus from '../../assets/icons/plus.svg'
+import selected from '../../assets/icons/selected.svg'
+import logout from '../../assets/icons/logout.svg'
+
 const Navbar = () => {
 
-    const { darkMode, toggleDarkMode } = useContext(ThemeContext)
-
-    const darkModeClick = () => {
-        toggleDarkMode();
-    }
+    const { darkMode } = useContext(ThemeContext)
 
     return (
 
@@ -85,7 +89,7 @@ const Navbar = () => {
                                     <li><Link to="/" className="dropdown-item">Something else here</Link></li>
                                 </ul>
                             </div>
-                            <div className="ms-5">
+                            {/* <div className="ms-5">
                                 <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img src={logo_circle} alt="" className='img-fluid me-1' />
                                 </div>
@@ -177,6 +181,52 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </div>
+                            </div> */}
+                            <div className="dropdown ms-5">
+                                <div className="" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src={profile} alt="" className='img-fluid me-1' />
+                                </div>
+                                <ul className="dropdown-menu border-0 shadow" aria-labelledby="dropdownMenuButton1">
+                                    <li>
+                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
+                                            <img src={user_bold} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Profil
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/profile/wallet" className="dropdown-item d-flex align-items-center mb-2">
+                                            <img src={wallet} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Gapjyk
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
+                                            <img src={plus} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Post goşmak
+                                        </Link>
+                                    </li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li>
+                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
+                                            <img src={selected} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Bellenenler
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
+                                            <img src={bell} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Bildirişler
+                                            <span className='small bg-danger px-1 rounded-circle ms-2 text-white' style={{ fontSize: "8px" }}>23</span>
+                                        </Link>
+                                    </li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li>
+                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger">
+                                            <img src={logout} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                            Ulgamdan çykmak
+                                        </Link>
+                                    </li>
+                                </ul>
                             </div>
                         </ul>
                     </div>

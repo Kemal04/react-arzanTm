@@ -4,3 +4,7 @@ export { default as Foto } from "./foto/Foto"
 export { default as FotoRead } from "./foto/FotoRead"
 
 export { default as Video } from "./video/Video"
+
+export { default as Profile } from "./profile/Profile"
+export { default as ProfileBloked } from "./profile/ProfileBloked"
+export { default as ProfileWallet } from "./profile/ProfileWallet"

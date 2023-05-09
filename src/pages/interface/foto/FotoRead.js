@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import arzanTm from '../../../assets/cards/posts/arzanTm.png'
 
 import img_1 from '../../../assets/cards/foto-detail/1.png'
