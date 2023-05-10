@@ -14,11 +14,6 @@ import cheap_2 from '../../../assets/cards/cheap/2.png'
 import cheap_3 from '../../../assets/cards/cheap/3.png'
 import cheap_4 from '../../../assets/cards/cheap/4.png'
 import cheap_5 from '../../../assets/cards/cheap/5.png'
-import cheap_6 from '../../../assets/cards/cheap/6.png'
-import cheap_7 from '../../../assets/cards/cheap/7.png'
-import cheap_8 from '../../../assets/cards/cheap/8.png'
-import cheap_9 from '../../../assets/cards/cheap/9.png'
-import cheap_10 from '../../../assets/cards/cheap/10.png'
 
 const Profile = () => {
     return (

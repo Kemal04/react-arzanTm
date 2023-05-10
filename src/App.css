@@ -48,6 +48,19 @@
 }
 
 .form-check-input:focus {
-    border-color: #86fe8c!important;
-    box-shadow: 0 0 0 0.25rem rgba(14, 194, 67, .25)!important;
+    border-color: #86fe8c !important;
+    box-shadow: 0 0 0 0.25rem rgba(14, 194, 67, .25) !important;
+}
+
+.btn-coin {
+    display: flex;
+    align-items: center;
+    border: 1px solid #E79E12;
+    color: #E79E12;
+    background: rgba(231, 158, 18, 0.1);
+    padding: 11px 28px;
+    border-radius: 5px;
+    width: 120px;
+    font-size: 15px;
+    font-weight: 500;
 }
