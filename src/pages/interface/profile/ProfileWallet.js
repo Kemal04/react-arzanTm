@@ -58,7 +58,7 @@ const ProfileWallet = () => {
                             <div className="tab-content" id="pills-tabContent">
                                 <div className="tab-pane fade show active" id="pills-day" role="tabpanel" aria-labelledby="pills-day-tab" tabIndex="0">
                                     <div className='table-responsive'>
-                                        <table class="table table-borderless align-middle">
+                                        <table className="table table-borderless align-middle">
                                             <thead className='border-bottom small text-secondary'>
                                                 <tr>
                                                     <td>Ady</td>

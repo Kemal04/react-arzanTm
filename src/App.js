@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
 
-import { Foto, FotoRead, Home, Profile, ProfileBloked, ProfileWallet, Video } from './pages/interface'
+import { Foto, FotoRead, Home, Offical, OfficalFollow, Profile, ProfileBloked, ProfileWallet, Video } from './pages/interface'
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
@@ -30,6 +30,9 @@ const App = () => {
                         <Route path='/profile' element={<Profile />} />
                         <Route path='/profile/wallet' element={<ProfileWallet />} />
                         <Route path='/profile/bloked' element={<ProfileBloked />} />
+
+                        <Route path='/offical' element={<Offical />} />
+                        <Route path='/offical/follow' element={<OfficalFollow />} />
                     </Route>
 
                     <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >

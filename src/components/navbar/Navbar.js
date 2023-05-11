@@ -205,7 +205,7 @@ const Navbar = () => {
                                             Post goşmak
                                         </Link>
                                     </li>
-                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><hr className="dropdown-divider" /></li>
                                     <li>
                                         <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
                                             <img src={selected} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
@@ -219,7 +219,7 @@ const Navbar = () => {
                                             <span className='small bg-danger px-1 rounded-circle ms-2 text-white' style={{ fontSize: "8px" }}>23</span>
                                         </Link>
                                     </li>
-                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><hr className="dropdown-divider" /></li>
                                     <li>
                                         <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger">
                                             <img src={logout} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
