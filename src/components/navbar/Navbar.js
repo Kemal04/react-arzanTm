@@ -200,7 +200,7 @@ const Navbar = () => {
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2">
+                                        <Link to="/post-gosmak" className="dropdown-item d-flex align-items-center mb-2">
                                             <img src={plus} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
                                             Post goşmak
                                         </Link>

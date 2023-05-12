@@ -1,10 +1,8 @@
 import React from 'react'
 
-import banner from '../../../assets/banners/offical/1.png'
 import profile from '../../../assets/cards/offical/circle/100haryt.png'
 import phone from '../../../assets/icons/phone-bold.svg'
 import location from '../../../assets/icons/location.svg'
-import coin from '../../../assets/icons/coin.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 
@@ -14,13 +12,18 @@ import cheap_3 from '../../../assets/cards/cheap/3.png'
 import cheap_4 from '../../../assets/cards/cheap/4.png'
 import cheap_5 from '../../../assets/cards/cheap/5.png'
 import { Link } from 'react-router-dom'
+import OfficalBanner from '../../../components/banners/OfficalBanner'
 
 const Offical = () => {
     return (
         <>
             <div className='container mt-4'>
                 <div className='text-center'>
-                    <img src={banner} alt="" className='img-fluid' style={{ height: "400px" }} />
+                    <div className='d-flex justify-content-center'>
+                        <div style={{ width: "60%" }}>
+                            <OfficalBanner />
+                        </div>
+                    </div>
                     <div className='row justify-content-center g-0'>
                         <div className='col-xl-12 position-relative'>
                             <img src={profile} alt="" className='img-fluid' style={{ marginTop: "-80px" }} />
