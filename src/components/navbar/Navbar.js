@@ -89,7 +89,7 @@ const Navbar = () => {
                                     <li><Link to="/" className="dropdown-item">Something else here</Link></li>
                                 </ul>
                             </div>
-                            {/* <div className="ms-5">
+                            <div className="ms-5">
                                 <div type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                     <img src={logo_circle} alt="" className='img-fluid me-1' />
                                 </div>
@@ -181,8 +181,8 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </div>
-                            </div> */}
-                            <div className="dropdown ms-5">
+                            </div>
+                            {/* <div className="dropdown ms-5">
                                 <div className="" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img src={profile} alt="" className='img-fluid me-1' />
                                 </div>
@@ -227,7 +227,7 @@ const Navbar = () => {
                                         </Link>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </ul>
                     </div>
 
