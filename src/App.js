@@ -5,7 +5,7 @@ import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSe
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin } from './pages/admin'
+import { Admin, AdminOffical } from './pages/admin'
 
 import { ThemeContext } from './context/ThemeContext'
 
@@ -41,6 +41,8 @@ const App = () => {
 
                     <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
                         <Route path='' element={<Admin />} />
+
+                        <Route path='offical/users' element={<AdminOffical />} />
                     </Route>
 
                 </Routes>
