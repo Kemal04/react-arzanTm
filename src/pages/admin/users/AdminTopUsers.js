@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenAlt, faPlus, faStar, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
-import { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 import search from '../../../assets/icons/search.svg'
+import user_2 from '../../../assets/icons/user-2.png'
+import { Link } from 'react-router-dom'
 
-import haryt100 from '../../../assets/cards/posts/100haryt.png'
-
-const AdminOffical = () => {
+const AdminTopUsers = () => {
     const { darkMode } = useContext(ThemeContext)
     return (
         <>
@@ -17,30 +16,29 @@ const AdminOffical = () => {
                         <div className='col-xl-6 col-lg-6 col-md-6 col-12'>
                             <div className='row'>
                                 <div className='col-xl-4'>
-                                    <select className={`form-select form-select-sm select-month me-2 ${darkMode ? "bg-dark-blue-footer text-white" : null}`}>
-                                        <option defaultValue>Official user</option>
-                                        <option>Extend</option>
-                                        <option>Expired</option>
-                                    </select>
+                                    <Link to='/admin/offical/users' className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-dark text-decoration-none' style={{ border: "1px solid #7280FF" }}>
+                                        <FontAwesomeIcon icon={faStar} className='me-1 rounded-circle p-1 bg-dark text-white' style={{ fontSize: "8px" }} />
+                                        Ofical User
+                                    </Link>
                                 </div>
                                 <div className='col-xl-4'>
-                                    <div className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold' style={{ border: "1px solid #7280FF" }}>
+                                    <Link to='/admin/users' className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-dark text-decoration-none' style={{ border: "1px solid #7280FF" }}>
                                         <FontAwesomeIcon icon={faUserCircle} className='me-1' />
                                         Simple User
-                                    </div>
+                                    </Link>
                                 </div>
                                 <div className='col-xl-4'>
-                                    <div className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold' style={{ border: "1px solid #7280FF" }}>
+                                    <Link to='/admin/top-users' className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-white text-decoration-none' style={{ border: "1px solid #7280FF", backgroundColor: "#000AFF" }}>
                                         <FontAwesomeIcon icon={faStar} className='me-1' />
                                         Top User
-                                    </div>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
                         <div className='col-xl-5 col-lg-5 col-md-5 col-12'>
                             <div className='row justify-content-end g-3'>
                                 <div className='col-xl-4 col-lg-3 col-md-3 col-6'>
-                                    <div className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold' style={{ border: "1px solid #7280FF" }}>
+                                    <div className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-dark text-decoration-none' style={{ border: "1px solid #7280FF" }}>
                                         <FontAwesomeIcon icon={faPlus} className='me-1' />
                                         Add User
                                     </div>
@@ -64,7 +62,7 @@ const AdminOffical = () => {
                                 <th className='border' scope="col">Avatar Username</th>
                                 <th className='border' scope="col">Phone</th>
                                 <th className='border' scope="col">Role</th>
-                                <th className='border' scope="col">Start Date End Date</th>
+                                <th className='border' scope="col">Date of Registration</th>
                                 <th className='border' scope="col">Action</th>
                             </tr>
                         </thead>
@@ -73,19 +71,15 @@ const AdminOffical = () => {
                                 <th scope="row" style={{ fontSize: "15px" }}>35477</th>
                                 <td>
                                     <div className='d-flex align-items-center'>
-                                        <img src={haryt100} alt="" style={{ width: "40px" }} />
-                                        <div className='lh-sm ms-2'>
-                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>100haryt.com.tm</div>
-                                            <div style={{ fontSize: "13px" }}>Ynamdar.tm@gmail.com</div>
+                                        <img src={user_2} alt="" style={{ width: "40px" }} />
+                                        <div className='ms-2'>
+                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>Marala</div>
                                         </div>
                                     </div>
                                 </td>
                                 <th>+99362054646</th>
-                                <th>Official user</th>
-                                <th className='lh-sm'>
-                                    <div>13-04-2023  10:35</div>
-                                    <div>13-04-2024  10:35</div>
-                                </th>
+                                <th>User</th>
+                                <th>13-04-2023  10:35</th>
                                 <th>
                                     <div className='d-flex align-items-center justify-content-between'>
                                         <FontAwesomeIcon icon={faTrashAlt} className='text-danger' />
@@ -101,4 +95,4 @@ const AdminOffical = () => {
     )
 }
 
-export default AdminOffical
+export default AdminTopUsers

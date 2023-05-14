@@ -1,4 +1,4 @@
-import { faBed, faHome, faPhotoFilm, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faPhotoFilm, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useContext } from 'react'
@@ -27,14 +27,14 @@ const AdminSidebar = () => {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/admin/banners" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
+                        <NavLink to="/admin/web/banners" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
                             <FontAwesomeIcon icon={faPhotoFilm} className="align-text-bottom me-2" />
                             Banner
                         </NavLink>
                     </li>
                     <li className="nav-item">
                         <NavLink to="/admin/vidoes" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
-                            <FontAwesomeIcon icon={faBed} className="align-text-bottom me-2" />
+                            <FontAwesomeIcon icon={faVideo} className="align-text-bottom me-2" />
                             Video
                         </NavLink>
                     </li>

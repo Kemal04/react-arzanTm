@@ -5,9 +5,13 @@ import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSe
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin, AdminOffical } from './pages/admin'
+import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBanners } from './pages/admin'
 
 import { ThemeContext } from './context/ThemeContext'
+
+//TOAST
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
 
@@ -16,7 +20,8 @@ const App = () => {
     return (
         <>
             <BrowserRouter>
-                    <ScrollToTop />
+                <ScrollToTop />
+                <ToastContainer />
                 <Routes>
 
                     <Route path='/' element={<HomeLayout />} >
@@ -43,6 +48,16 @@ const App = () => {
                         <Route path='' element={<Admin />} />
 
                         <Route path='offical/users' element={<AdminOffical />} />
+                        <Route path='users' element={<AdminUsers />} />
+                        <Route path='top-users' element={<AdminTopUsers />} />
+                        <Route path='user-create' element={<AdminUserCreate />} />
+                        <Route path='user-edit/:id' element={<AdminUserEdit />} />
+
+                        <Route path='web/banners' element={<AdminWebBanners />} />
+                        <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
+
+                        <Route path='app/banners' element={<AdminAppBanners />} />
+                        <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
                     </Route>
 
                 </Routes>

@@ -32,6 +32,19 @@
     font-weight: 500 !important;
 }
 
+.btn-outline-green {
+    border: 1px solid #767676 !important;
+    background-color: white !important;
+    font-weight: 500 !important;
+}
+
+.btn-outline-green:hover {
+    border: 1px solid #0EC243 !important;
+    background-color: #0EC243 !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
 .footer-rgba {
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -73,12 +86,5 @@
     cursor: pointer;
     border: 1px dashed #AAAAAA;
     stroke-dashoffset: 10px;
-    height: 200px!important;
+    height: 200px !important;
 }
-.gallery {
-    display: flex;
-  }
-  
-  .gallery img {
-    margin: 10px;
-  }
