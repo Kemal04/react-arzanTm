@@ -4,10 +4,29 @@ import { faPenAlt, faPlus, faStar, faTrashAlt, faUserCircle } from '@fortawesome
 import { ThemeContext } from '../../../context/ThemeContext'
 import search from '../../../assets/icons/search.svg'
 import user_2 from '../../../assets/icons/user-2.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { deleteUsers, getAllUsers } from '../../../redux/slices/users'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import moment from 'moment/moment'
 
 const AdminUsers = () => {
     const { darkMode } = useContext(ThemeContext)
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { users } = useSelector(state => state.users)
+
+    useEffect(() => {
+        dispatch(getAllUsers())
+    }, [dispatch])
+
+    const handleDelete = async (id) => {
+        dispatch(deleteUsers(id))
+        navigate("/admin/users")
+    }
+
     return (
         <>
             <div className='card border-0 shadow my-5'>
@@ -67,26 +86,31 @@ const AdminUsers = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" style={{ fontSize: "15px" }}>35477</th>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img src={user_2} alt="" style={{ width: "40px" }} />
-                                        <div className='ms-2'>
-                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>Marala</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <th>+99362054646</th>
-                                <th>User</th>
-                                <th>13-04-2023  10:35</th>
-                                <th>
-                                    <div className='d-flex align-items-center justify-content-between'>
-                                        <FontAwesomeIcon icon={faTrashAlt} className='text-danger' />
-                                        <FontAwesomeIcon icon={faPenAlt} className='text-green' />
-                                    </div>
-                                </th>
-                            </tr>
+                            {
+
+                                users.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((user, index) => (
+                                    <tr key={index}>
+                                        <th scope="row" style={{ fontSize: "15px" }}>35477</th>
+                                        <td>
+                                            <div className='d-flex align-items-center'>
+                                                <img src={user_2} alt="" style={{ width: "40px" }} />
+                                                <div className='ms-2'>
+                                                    <div style={{ fontSize: "15px", fontWeight: "700" }}>{user.name}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <th>+993 {user.phone_num}</th>
+                                        <th>{user.role}</th>
+                                        <th>{moment(user.createdAt).format("DD-MM-YYYY")}</th>
+                                        <th>
+                                            <div className='d-flex align-items-center justify-content-between'>
+                                                <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} onClick={() => handleDelete(user.id)} />
+                                                <FontAwesomeIcon icon={faPenAlt} className='text-green' />
+                                            </div>
+                                        </th>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -67,26 +67,7 @@ const AdminTopUsers = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" style={{ fontSize: "15px" }}>35477</th>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img src={user_2} alt="" style={{ width: "40px" }} />
-                                        <div className='ms-2'>
-                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>Marala</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <th>+99362054646</th>
-                                <th>User</th>
-                                <th>13-04-2023  10:35</th>
-                                <th>
-                                    <div className='d-flex align-items-center justify-content-between'>
-                                        <FontAwesomeIcon icon={faTrashAlt} className='text-danger' />
-                                        <FontAwesomeIcon icon={faPenAlt} className='text-green' />
-                                    </div>
-                                </th>
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>

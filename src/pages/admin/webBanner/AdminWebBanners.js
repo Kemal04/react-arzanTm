@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe, faMobileAlt, faPenAlt, faPlus, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../../../context/ThemeContext'
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteBanner, getAllBanners } from '../../../redux/slices/banner'
 
 const AdminWebBanners = () => {
+    
     const { darkMode } = useContext(ThemeContext)
 
     const navigate = useNavigate()
