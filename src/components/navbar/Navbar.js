@@ -20,7 +20,7 @@ import profile from '../../assets/icons/mikki.png'
 import wallet from '../../assets/icons/wallet.svg'
 import plus from '../../assets/icons/plus.svg'
 import selected from '../../assets/icons/selected.svg'
-import logout from '../../assets/icons/logout.svg'
+import logout_img from '../../assets/icons/logout.svg'
 import { AuthContext } from '../../context/AuthContext';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
@@ -41,7 +41,6 @@ const Navbar = () => {
 
     const registerUser = async (e) => {
         e.preventDefault();
-
 
         const data = { name: name, phone_num: phone_num, password: password }
 
@@ -115,8 +114,13 @@ const Navbar = () => {
         }
     }
 
-    return (
+    const logout = () => {
+        localStorage.removeItem("accessToken");
+        setAuthState({ name: "", id: 0, status: false, role: "User" })
+        navigate('/')
+    };
 
+    return (
         <>
             <nav className={`navbar navbar-expand-lg py-0 ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-white'}`}>
                 <div className="container">
@@ -328,10 +332,10 @@ const Navbar = () => {
                                             </li>
                                             <li><hr className="dropdown-divider" /></li>
                                             <li>
-                                                <Link to="/profile" className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger">
-                                                    <img src={logout} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
+                                                <div onClick={logout} className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger" style={{ cursor: "pointer" }}>
+                                                    <img src={logout_img} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
                                                     Ulgamdan çykmak
-                                                </Link>
+                                                </div>
                                             </li>
                                         </ul>
                                     </div>
@@ -351,36 +355,6 @@ const Navbar = () => {
                         <h5 className="offcanvas-title me-5 pe-5" id="offcanvasWithBothOptionsLabel">Logo</h5>
                         <button type="button" className={`btn-close ms-4`} data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-
-                    {/* <div className="d-flex flex-column mt-3">
-                        <ul className="navbar-nav p-3">
-                            <li className="nav-item mx-xl-2 mx-lg-2 mx-md-2 mx-sm-0 mx-0" style={{ fontSize: "17px" }}>
-                                <NavLink to="/" style={({ isActive }) => ({ color: isActive ? "active" : null })} className="nav-link fw-bold">Baş sahypa</NavLink>
-                            </li>
-                            <li className="nav-item mx-xl-2 mx-lg-2 mx-md-2 mx-sm-0 mx-0" style={{ fontSize: "17px" }}>
-                                <NavLink to="/otaglar" className="nav-link fw-bold">Otaglar</NavLink>
-                            </li>
-                            <li className="nav-item mx-xl-2 mx-lg-2 mx-md-2 mx-sm-0 mx-0" style={{ fontSize: "17px" }}>
-                                <NavLink to="/biz-barada" className="nav-link fw-bold">Biz barada</NavLink>
-                            </li>
-                            <li className="nav-item mx-xl-2 mx-lg-2 mx-md-2 mx-sm-0 mx-0" style={{ fontSize: "17px" }}>
-                                <NavLink to="/habarlasmak" className="nav-link fw-bold">Habarlaşmak</NavLink>
-                            </li>
-                            <li className="nav-item mx-xl-2 mx-lg-2 mx-md-2 mx-sm-0 mx-0" style={{ fontSize: "17px" }}>
-                                <div style={{ cursor: "pointer" }} onClick={darkModeClick} className="nav-link border-0">
-                                    {
-                                        darkMode ?
-                                            <FontAwesomeIcon icon={faSun} />
-                                            :
-                                            <FontAwesomeIcon icon={faMoon} />
-                                    }
-                                </div>
-                            </li>
-                        </ul>
-                        <form className="d-flex position-absolute bottom-0 justify-content-center">
-                            <Link to="/giris-etmek" className="btn btn-primary py-4 fw-bold" style={{ letterSpacing: "1px", paddingLeft: "102px", paddingRight: "103px" }} type="submit">Giriş</Link>
-                        </form>
-                    </div> */}
                 </div>
             </div>
         </>

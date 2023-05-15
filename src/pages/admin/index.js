@@ -9,6 +9,11 @@ export { default as AdminUserEdit } from "./users/AdminUserEdit"
 //WEB
 export { default as AdminWebBanners } from "./webBanner/AdminWebBanners"
 export { default as AdminWebBannerCreate } from "./webBanner/AdminWebBannerCreate"
+export { default as AdminWebBannerEdit } from "./webBanner/AdminWebBannerEdit"
+
+export { default as AdminDiscounts } from "./discounts/AdminDiscounts"
+export { default as AdminDiscountCreate } from "./discounts/AdminDiscountCreate"
+export { default as AdminDiscountEdit } from "./discounts/AdminDiscountEdit"
 
 //APP
 export { default as AdminAppBanners } from "./appBanner/AdminAppBanners"

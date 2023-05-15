@@ -1,14 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenAlt, faPlus, faStar, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../../../context/ThemeContext'
 import search from '../../../assets/icons/search.svg'
 
 import haryt100 from '../../../assets/cards/posts/100haryt.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteUsers, getAllUsers } from '../../../redux/slices/users'
+import moment from 'moment'
 
 const AdminOffical = () => {
+
     const { darkMode } = useContext(ThemeContext)
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { users } = useSelector(state => state.users)
+
+    useEffect(() => {
+        dispatch(getAllUsers())
+    }, [dispatch])
+
+    const handleDelete = async (id) => {
+        dispatch(deleteUsers(id))
+        navigate("/admin/users")
+    }
+
     return (
         <>
             <div className='card border-0 shadow my-5'>
@@ -68,30 +87,37 @@ const AdminOffical = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" style={{ fontSize: "15px" }}>35477</th>
-                                <td>
-                                    <div className='d-flex align-items-center'>
-                                        <img src={haryt100} alt="" style={{ width: "40px" }} />
-                                        <div className='lh-sm ms-2'>
-                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>100haryt.com.tm</div>
-                                            <div style={{ fontSize: "13px" }}>Ynamdar.tm@gmail.com</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <th>+99362054646</th>
-                                <th>Official user</th>
-                                <th className='lh-sm'>
-                                    <div>13-04-2023  10:35</div>
-                                    <div>13-04-2024  10:35</div>
-                                </th>
-                                <th>
-                                    <div className='d-flex align-items-center justify-content-between'>
-                                        <FontAwesomeIcon icon={faTrashAlt} className='text-danger' />
-                                        <FontAwesomeIcon icon={faPenAlt} className='text-green' />
-                                    </div>
-                                </th>
-                            </tr>
+                            {
+
+                                users.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((user, index) => (
+                                    user.role === "Offical" && (
+                                        <tr key={index}>
+                                            <th scope="row" style={{ fontSize: "15px" }}>35477</th>
+                                            <td>
+                                                <div className='d-flex align-items-center'>
+                                                    <img src={haryt100} alt="" style={{ width: "40px" }} />
+                                                    <div className='lh-sm ms-2'>
+                                                        <div style={{ fontSize: "15px", fontWeight: "700" }}>{user.name}</div>
+                                                        <div style={{ fontSize: "13px" }}>{user.email ? user.email : "null@gmail.com"}</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <th>+993 {user.phone_num}</th>
+                                            <th>{user.role}</th>
+                                            <th className='lh-sm'>
+                                                <div>{moment(user.createdAt).format("DD-MM-YYYY")}</div>
+                                                <div>{moment(user.createdAt).format("DD-MM-YYYY")}</div>
+                                            </th>
+                                            <th>
+                                                <div className='d-flex align-items-center justify-content-between'>
+                                                    <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} onClick={() => handleDelete(user.id)} />
+                                                    <Link to={`/admin/user-edit/${user.id}`} className='text-decoration-none'><FontAwesomeIcon icon={faPenAlt} className='text-green' /></Link>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    )
+                                ))
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -1,9 +1,6 @@
 import React from 'react'
 import '@splidejs/react-splide/css';
 import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
-import { useContext } from 'react';
-import { ThemeContext } from '../../context/ThemeContext';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllBanners } from '../../redux/slices/banner';
@@ -17,8 +14,6 @@ const HomeBanner = () => {
         pagination: true,
         autoplay: false,
     };
-
-    const { darkMode } = useContext(ThemeContext)
 
     const dispatch = useDispatch()
 
@@ -36,7 +31,7 @@ const HomeBanner = () => {
                         banners.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((banner, index) =>
                             banner.type === "Web"
                                 ?
-                                banner.pageId === 1
+                                banner.pageId === 1 
                                     ?
                                     <SplideSlide className='col-lg-12 p-0' key={index}>
                                         <img src={banner.banner_img} alt="banner" className='img-fluid' style={{ height: "430px" }} />

@@ -6,7 +6,7 @@ import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSe
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBanners } from './pages/admin'
+import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners } from './pages/admin'
 
 import { ThemeContext } from './context/ThemeContext'
 
@@ -34,10 +34,10 @@ const App = () => {
 
     useEffect(() => {
         axios.get(`${Api_Address}/api/v1/auth/current_user`, {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken"),
-                },
-            })
+            headers: {
+                accessToken: localStorage.getItem("accessToken"),
+            },
+        })
             .then((res) => {
                 if (res.data.error) {
                     setAuthState({ ...authState, status: false, role: "User" });
@@ -70,16 +70,28 @@ const App = () => {
 
                             <Route path='/video' element={<Video />} />
 
-                            <Route path='/profile' element={<Profile />} />
-                            <Route path='/profile/wallet' element={<ProfileWallet />} />
-                            <Route path='/profile/bloked' element={<ProfileBloked />} />
+                            {
+                                authState.status && (
+                                    <>
+                                        <Route path='/profile' element={<Profile />} />
+                                        <Route path='/profile/wallet' element={<ProfileWallet />} />
+                                        <Route path='/profile/bloked' element={<ProfileBloked />} />
+                                        <Route path='/post-gosmak' element={<PostAdd />} />
+                                    </>
+                                )
+                            }
 
-                            <Route path='/offical' element={<Offical />} />
-                            <Route path='/offical/follow' element={<OfficalFollow />} />
-                            <Route path='/offical/expired' element={<OfficalExpired />} />
-                            <Route path='/offical/self' element={<OfficalSelf />} />
+                            {
+                                authState.role === "Offical" && (
+                                    <>
+                                        <Route path='/offical' element={<Offical />} />
+                                        <Route path='/offical/follow' element={<OfficalFollow />} />
+                                        <Route path='/offical/expired' element={<OfficalExpired />} />
+                                        <Route path='/offical/self' element={<OfficalSelf />} />
+                                    </>
+                                )
+                            }
 
-                            <Route path='/post-gosmak' element={<PostAdd />} />
                         </Route>
 
                         <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
@@ -89,10 +101,15 @@ const App = () => {
                             <Route path='users' element={<AdminUsers />} />
                             <Route path='top-users' element={<AdminTopUsers />} />
                             <Route path='user-create' element={<AdminUserCreate />} />
-                            <Route path='user-edit/:id' element={<AdminUserEdit />} />
+                            <Route path='user-edit/:userId' element={<AdminUserEdit />} />
 
                             <Route path='web/banners' element={<AdminWebBanners />} />
                             <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
+                            <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
+                            
+                            <Route path='discounts' element={<AdminDiscounts />} />
+                            <Route path='discount-create' element={<AdminDiscountCreate />} />
+                            <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
 
                             <Route path='app/banners' element={<AdminAppBanners />} />
                             <Route path='app/banner-create' element={<AdminAppBannerCreate />} />

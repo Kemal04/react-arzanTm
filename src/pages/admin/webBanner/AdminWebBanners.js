@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { deleteBanner, getAllBanners } from '../../../redux/slices/banner'
 
 const AdminWebBanners = () => {
-    
+
     const { darkMode } = useContext(ThemeContext)
 
     const navigate = useNavigate()
@@ -82,7 +82,7 @@ const AdminWebBanners = () => {
                                                 <div className='fw-bold mb-2'>Is active: <span className='fw-normal'>{banner.checked}</span></div>
                                                 <div className='d-flex align-items-center justify-content-between'>
                                                     <button onClick={() => handleDelete(banner.id)} className='btn btn-danger btn-sm px-2'><FontAwesomeIcon icon={faTrashAlt} className='me-1' />Delete</button>
-                                                    <Link to='/admin' className='btn btn-primary btn-sm px-3' style={{ backgroundColor: "#000AFF" }}><FontAwesomeIcon icon={faPenAlt} /> Edit</Link>
+                                                    <Link to={`/admin/web/banner-edit/${banner.id}`} className='btn btn-primary btn-sm px-3' style={{ backgroundColor: "#000AFF" }}><FontAwesomeIcon icon={faPenAlt} /> Edit</Link>
                                                 </div>
                                             </div>
                                         </div>

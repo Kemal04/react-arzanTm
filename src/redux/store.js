@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import bannerReducer from './slices/banner';
 import usersReducer from './slices/users';
+import discountsReducer from './slices/discount';
 
 const reducer = {
     banner: bannerReducer,
     users: usersReducer,
+    discounts: discountsReducer,
 }
 
 const store = configureStore({
