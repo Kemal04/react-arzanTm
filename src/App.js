@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 
 import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, Video } from './pages/interface'
@@ -57,7 +57,7 @@ const App = () => {
     return (
         <>
             <AuthContext.Provider value={{ authState, setAuthState }}>
-                <BrowserRouter>
+                <Router>
                     <ScrollToTop />
                     <ToastContainer />
                     <Routes>
@@ -116,7 +116,7 @@ const App = () => {
                         </Route>
 
                     </Routes>
-                </BrowserRouter>
+                </Router>
             </AuthContext.Provider>
         </>
     )

@@ -68,6 +68,7 @@ const AdminDiscountCreate = () => {
         formData.append('publishDiscount', publishDiscount)
         formData.append('welayat', discount.welayat)
         formData.append('subcategoryId', discount.subcategoryId)
+        formData.append('checked', "1")
 
         if (!img) {
             toast.error("Surat yok")

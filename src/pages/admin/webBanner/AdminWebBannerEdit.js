@@ -23,7 +23,8 @@ const AdminWebBannerEdit = () => {
         if (event.target.files && event.target.files[0]) {
             setImage(URL.createObjectURL(event.target.files[0]));
         }
-        uploadPicture()
+        debugger
+        uploadPicture(event)
     }
 
     const { bannerId } = useParams()
