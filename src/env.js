@@ -1,3 +1,3 @@
-const Api_Address = "http://it.net.tm:8888"
+const Api_Address = "https://it.net.tm/arzanapi"
 
 export default Api_Address;

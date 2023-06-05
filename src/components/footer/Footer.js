@@ -7,6 +7,9 @@ import tiktok from '../../assets/icons/tiktok.svg'
 import instagram from '../../assets/icons/instagram.svg'
 
 const Footer = () => {
+
+    console.log('Footer rendered');
+
     return (
         <>
             <div className='p-5 text-white' style={{ backgroundColor: "#0A0909" }}>

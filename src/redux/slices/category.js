@@ -13,8 +13,7 @@ const initialState = {
 export const getAllCategories = createAsyncThunk(
     "categories/getAll",
     async () => {
-        const { data } = await axios.get(`${Api_Address}/categories/sel/1/15/desc`)
-        debugger
+        const { data } = await axios.get(`http://it.net.tm:8888/categories/sel/1/15/desc`)
         return data
     }
 );

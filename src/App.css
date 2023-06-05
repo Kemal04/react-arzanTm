@@ -26,6 +26,10 @@
     background-color: #0EC243 !important;
 }
 
+.border-green{
+    border: 2px solid #0EC243!important;
+}
+
 .btn-green {
     background-color: #0EC243 !important;
     color: white !important;

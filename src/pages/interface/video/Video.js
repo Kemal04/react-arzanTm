@@ -25,6 +25,11 @@ import like_empty from '../../../assets/icons/like-empty.svg'
 import grid_little from '../../../assets/icons/grid-little.svg'
 import grid_big from '../../../assets/icons/grid-big.svg'
 
+import star from '../../../assets/icons/star.svg'
+import play from '../../../assets/icons/play.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+
 const Video = () => {
 
     const [grid, setGrid] = useState(false)
@@ -77,14 +82,34 @@ const Video = () => {
                     <img src={banner} alt="" className='img-fluid w-100' />
                 </div>
 
-                <div className='row my-5 gx-3'>
+                <div className='row justify-content-center'>
+                    <div className='col-xl-6'>
+                        <div className='d-flex align-items-center justify-content-center border-green' style={{ borderRadius: "10px 0 0 10px" }}>
+                            <img src={play} alt="" className='img-fluid' />
+                            Meşhurlar (65)
+                        </div>
+                    </div>
+                    <div className='col-xl-6'>
+                        <div className='d-flex align-items-center justify-content-center border-green' style={{ borderRadius: "0 10px 10px 0" }}>
+                            <img src={star} alt="" className='img-fluid' />
+                            Resmiler (25)
+                        </div>
+                    </div>
+                </div>
+
+                <div className='row mb-5 mt-4 gx-3'>
                     <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={haryt100} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_1} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_1} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>
@@ -113,7 +138,12 @@ const Video = () => {
                                 <img src={arzanTm} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_2} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_2} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>
@@ -142,7 +172,12 @@ const Video = () => {
                                 <img src={lays} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_3} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_3} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>
@@ -171,7 +206,12 @@ const Video = () => {
                                 <img src={halk_market} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_4} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_4} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>
@@ -200,7 +240,12 @@ const Video = () => {
                                 <img src={balary} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_5} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_5} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>
@@ -229,7 +274,12 @@ const Video = () => {
                                 <img src={mercedes_benz} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
                                 <div>100haryt.com</div>
                             </div>
-                            <img src={img_6} alt="" className='img-fluid' />
+                            <div className='position-relative d-flex justify-content-center align-items-center'>
+                                <img src={img_6} alt="" className='img-fluid w-100' />
+                                <div className='card-img-overlay' style={{ top: "40%", left: "40%" }}>
+                                    <FontAwesomeIcon icon={faPlayCircle} className='h1 opacity-75 text-white'/>
+                                </div>
+                            </div>
                             <div className='card-body'>
                                 <div className='card-title' style={{ fontWeight: "500" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid..</div>
                                 <div className='d-flex align-items-center justify-content-between small text-secondary'>

@@ -8,7 +8,7 @@ import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './compon
 
 import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminCategories, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners } from './pages/admin'
 
-import { ThemeContext } from './context/ThemeContext'
+import ThemeContextProvider, { ThemeContext } from './context/ThemeContext'
 
 //TOAST
 import { ToastContainer } from 'react-toastify'
@@ -22,7 +22,6 @@ import Api_Address from './env'
 
 const App = () => {
 
-    const { darkMode } = useContext(ThemeContext)
 
     const [authState, setAuthState] = useState({
         name: "",
@@ -56,73 +55,75 @@ const App = () => {
 
     return (
         <>
-            <AuthContext.Provider value={{ authState, setAuthState }}>
-                <Router>
-                    <ScrollToTop />
-                    <ToastContainer />
-                    <Routes>
+            <ThemeContextProvider>
+                <AuthContext.Provider value={{ authState, setAuthState }}>
+                    <Router>
+                        <ScrollToTop />
+                        <ToastContainer />
+                        <Routes>
 
-                        <Route path='/' element={<HomeLayout />} >
-                            <Route path='/' element={<Home />} />
+                            <Route path='/' element={<HomeLayout />} >
+                                <Route path='/' element={<Home />} />
 
-                            <Route path='/foto' element={<Foto />} />
-                            <Route path='/foto/arzanTm' element={<FotoRead />} />
+                                <Route path='/foto' element={<Foto />} />
+                                <Route path='/foto/arzanTm' element={<FotoRead />} />
 
-                            <Route path='/video' element={<Video />} />
+                                <Route path='/video' element={<Video />} />
 
-                            <Route path='/top-list' element={<TopList />} />
+                                <Route path='/top-list' element={<TopList />} />
 
-                            {
-                                authState.role === 'User' && (
-                                    <>
-                                        <Route path='/profile' element={<Profile />} />
-                                        <Route path='/profile/wallet' element={<ProfileWallet />} />
-                                        <Route path='/profile/bloked' element={<ProfileBloked />} />
-                                        <Route path='/post-gosmak' element={<PostAdd />} />
-                                    </>
-                                )
-                            }
+                                {
+                                    authState.role === 'User' && (
+                                        <>
+                                            <Route path='/profile' element={<Profile />} />
+                                            <Route path='/profile/wallet' element={<ProfileWallet />} />
+                                            <Route path='/profile/bloked' element={<ProfileBloked />} />
+                                            <Route path='/post-gosmak' element={<PostAdd />} />
+                                        </>
+                                    )
+                                }
 
-                            {
-                                authState.role === "Offical" && (
-                                    <>
-                                        <Route path='/offical' element={<Offical />} />
-                                        <Route path='/offical/follow' element={<OfficalFollow />} />
-                                        <Route path='/offical/expired' element={<OfficalExpired />} />
-                                        <Route path='/offical/self' element={<OfficalSelf />} />
-                                        <Route path='/post-gosmak' element={<PostAdd />} />
-                                    </>
-                                )
-                            }
+                                {
+                                    authState.role === "Offical" && (
+                                        <>
+                                            <Route path='/offical' element={<Offical />} />
+                                            <Route path='/offical/follow' element={<OfficalFollow />} />
+                                            <Route path='/offical/expired' element={<OfficalExpired />} />
+                                            <Route path='/offical/self' element={<OfficalSelf />} />
+                                            <Route path='/post-gosmak' element={<PostAdd />} />
+                                        </>
+                                    )
+                                }
 
-                        </Route>
+                            </Route>
 
-                        <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
-                            <Route path='' element={<Admin />} />
+                            <Route path='/admin' element={<AdminLayout />} >
+                                <Route path='' element={<Admin />} />
 
-                            <Route path='categories' element={<AdminCategories />} />
+                                <Route path='categories' element={<AdminCategories />} />
 
-                            <Route path='offical/users' element={<AdminOffical />} />
-                            <Route path='users' element={<AdminUsers />} />
-                            <Route path='top-users' element={<AdminTopUsers />} />
-                            <Route path='user-create' element={<AdminUserCreate />} />
-                            <Route path='user-edit/:userId' element={<AdminUserEdit />} />
+                                <Route path='offical/users' element={<AdminOffical />} />
+                                <Route path='users' element={<AdminUsers />} />
+                                <Route path='top-users' element={<AdminTopUsers />} />
+                                <Route path='user-create' element={<AdminUserCreate />} />
+                                <Route path='user-edit/:userId' element={<AdminUserEdit />} />
 
-                            <Route path='web/banners' element={<AdminWebBanners />} />
-                            <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
-                            <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
+                                <Route path='web/banners' element={<AdminWebBanners />} />
+                                <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
+                                <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
 
-                            <Route path='discounts' element={<AdminDiscounts />} />
-                            <Route path='discount-create' element={<AdminDiscountCreate />} />
-                            <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+                                <Route path='discounts' element={<AdminDiscounts />} />
+                                <Route path='discount-create' element={<AdminDiscountCreate />} />
+                                <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
 
-                            <Route path='app/banners' element={<AdminAppBanners />} />
-                            <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
-                        </Route>
+                                <Route path='app/banners' element={<AdminAppBanners />} />
+                                <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
+                            </Route>
 
-                    </Routes>
-                </Router>
-            </AuthContext.Provider>
+                        </Routes>
+                    </Router>
+                </AuthContext.Provider>
+            </ThemeContextProvider>
         </>
     )
 }
@@ -139,7 +140,10 @@ const HomeLayout = () => {
     );
 };
 
-const AdminLayout = ({ darkMode }) => {
+const AdminLayout = () => {
+
+    const { darkMode } = useContext(ThemeContext)
+
     return (
         <div className={`${darkMode ? "bg-dark" : "bg-main"}`}>
             <AdminNavbar />

@@ -20,13 +20,13 @@ const AdminCategories = () => {
 
     const handleDelete = async (id) => {
         dispatch(deleteCategory(id))
-        navigate("/admin/users")
+        navigate("/admin")
     }
 
     console.log(categories);
 
     return (
-        <div>{categories}</div>
+        <div></div>
     )
 }
 
