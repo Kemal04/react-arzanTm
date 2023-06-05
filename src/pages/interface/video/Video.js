@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import banner from '../../../assets/banners/video/1.png'
@@ -22,7 +22,13 @@ import eye from '../../../assets/icons/eye.png'
 import like from '../../../assets/icons/like.svg'
 import like_empty from '../../../assets/icons/like-empty.svg'
 
+import grid_little from '../../../assets/icons/grid-little.svg'
+import grid_big from '../../../assets/icons/grid-big.svg'
+
 const Video = () => {
+
+    const [grid, setGrid] = useState(false)
+
     return (
         <>
             <div className='container d-flex align-items-center my-4'>
@@ -31,9 +37,40 @@ const Video = () => {
                 <div>Wideo</div>
             </div>
 
-            <div className='container mt-2 '>
-                <div className='d-flex align-items-center'>
+            <div className='container my-2'>
+                <div className='d-flex align-items-center justify-content-between'>
                     <div className='h3'>Wideo <span className='text-green'>(+19)</span></div>
+                    <div className='d-flex align-items-center'>
+                        <img src={grid_little} alt="" className='me-2' style={{ width: "24px", cursor: "pointer" }} onClick={() => setGrid(false)} />
+                        <img src={grid_big} alt="" className='ms-2' style={{ width: "25px", cursor: "pointer" }} onClick={() => setGrid(true)} />
+                    </div>
+                </div>
+
+                <div className='row mt-2'>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Hemmesi (256)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn btn-green btn-sm rounded px-4'>Sport (65)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Awto (23)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Medeniýet (39)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Kibersport (11)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Kibersport (11)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Awto (23)</button>
+                    </div>
+                    <div className='col-xl-auto'>
+                        <button className='btn bg-light btn-outline-green btn-sm rounded px-4'>Medeniýet (39)</button>
+                    </div>
                 </div>
 
                 <div className='my-3'>
@@ -41,7 +78,7 @@ const Video = () => {
                 </div>
 
                 <div className='row my-5 gx-3'>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={haryt100} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -70,7 +107,7 @@ const Video = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={arzanTm} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -99,7 +136,7 @@ const Video = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={lays} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -128,7 +165,7 @@ const Video = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={halk_market} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -157,7 +194,7 @@ const Video = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={balary} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -186,7 +223,7 @@ const Video = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/video" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/video" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={mercedes_benz} alt="" className='img-fluid me-2' style={{ width: "40px" }} />

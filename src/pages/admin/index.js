@@ -6,6 +6,8 @@ export { default as AdminTopUsers } from "./users/AdminTopUsers"
 export { default as AdminUserCreate } from "./users/AdminUserCreate"
 export { default as AdminUserEdit } from "./users/AdminUserEdit"
 
+export { default as AdminCategories } from "./category/AdminCategories"
+
 //WEB
 export { default as AdminWebBanners } from "./webBanner/AdminWebBanners"
 export { default as AdminWebBannerCreate } from "./webBanner/AdminWebBannerCreate"

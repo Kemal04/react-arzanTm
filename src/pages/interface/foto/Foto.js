@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import banner from '../../../assets/banners/foto/1.png'
 
@@ -19,7 +19,13 @@ import mercedes_benz from '../../../assets/cards/posts/mercedes-benz.png'
 import gallery from '../../../assets/icons/gallery.svg'
 import eye from '../../../assets/icons/eye.png'
 
+import grid_little from '../../../assets/icons/grid-little.svg'
+import grid_big from '../../../assets/icons/grid-big.svg'
+
 const Foto = () => {
+
+    const [grid, setGrid] = useState(false)
+
     return (
         <>
             <div className='container d-flex align-items-center my-4'>
@@ -29,8 +35,12 @@ const Foto = () => {
             </div>
 
             <div className='container mt-2 '>
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center justify-content-between'>
                     <div className='h3'>Surat <span className='text-green'>(+21)</span></div>
+                    <div className='d-flex align-items-center'>
+                        <img src={grid_little} alt="" className='me-2' style={{ width: "24px", cursor: "pointer" }} onClick={() => setGrid(false)} />
+                        <img src={grid_big} alt="" className='ms-2' style={{ width: "25px", cursor: "pointer" }} onClick={() => setGrid(true)} />
+                    </div>
                 </div>
 
                 <div className='my-3'>
@@ -38,7 +48,7 @@ const Foto = () => {
                 </div>
 
                 <div className='row my-5 gx-3'>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={haryt100} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -60,7 +70,7 @@ const Foto = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={arzanTm} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -82,7 +92,7 @@ const Foto = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={lays} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -104,7 +114,7 @@ const Foto = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={halk_market} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -126,7 +136,7 @@ const Foto = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={balary} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -148,7 +158,7 @@ const Foto = () => {
                             </div>
                         </div>
                     </Link>
-                    <Link to="/foto/arzanTm" className='col-xl-4 mb-3 text-decoration-none text-dark'>
+                    <Link to="/foto/arzanTm" className={`col-xl-4 mb-3 text-decoration-none text-dark ${grid === true ? "col-xl-6" : null}`}>
                         <div className='card rounded-21'>
                             <div className='card-body d-flex align-items-center'>
                                 <img src={mercedes_benz} alt="" className='img-fluid me-2' style={{ width: "40px" }} />
@@ -171,7 +181,7 @@ const Foto = () => {
                         </div>
                     </Link>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

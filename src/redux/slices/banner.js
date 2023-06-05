@@ -21,6 +21,7 @@ export const getAllBanners = createAsyncThunk(
 export const creatBanner = createAsyncThunk(
     "banner/create",
     async (formData) => {
+        debugger
         await axios.post(`${Api_Address}/api/v1/banner/create`, formData, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),

@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom'
 import axios from 'axios'
 
-import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, Video } from './pages/interface'
+import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, TopList, Video } from './pages/interface'
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners } from './pages/admin'
+import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminCategories, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners } from './pages/admin'
 
 import { ThemeContext } from './context/ThemeContext'
 
@@ -39,9 +39,7 @@ const App = () => {
             },
         })
             .then((res) => {
-                if (res.data.error) {
-                    setAuthState({ ...authState, status: false, role: "User" });
-                } else {
+                if (!res.data.error) {
                     setAuthState({
                         name: res.data.name,
                         email: res.data.email,
@@ -49,6 +47,8 @@ const App = () => {
                         status: true,
                         role: res.data.role,
                     });
+                } else {
+                    setAuthState({ ...authState, status: false, role: "User" });
                 }
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -70,8 +70,10 @@ const App = () => {
 
                             <Route path='/video' element={<Video />} />
 
+                            <Route path='/top-list' element={<TopList />} />
+
                             {
-                                authState.status && (
+                                authState.role === 'User' && (
                                     <>
                                         <Route path='/profile' element={<Profile />} />
                                         <Route path='/profile/wallet' element={<ProfileWallet />} />
@@ -88,6 +90,7 @@ const App = () => {
                                         <Route path='/offical/follow' element={<OfficalFollow />} />
                                         <Route path='/offical/expired' element={<OfficalExpired />} />
                                         <Route path='/offical/self' element={<OfficalSelf />} />
+                                        <Route path='/post-gosmak' element={<PostAdd />} />
                                     </>
                                 )
                             }
@@ -96,6 +99,8 @@ const App = () => {
 
                         <Route path='/admin' element={<AdminLayout darkMode={darkMode} />} >
                             <Route path='' element={<Admin />} />
+
+                            <Route path='categories' element={<AdminCategories />} />
 
                             <Route path='offical/users' element={<AdminOffical />} />
                             <Route path='users' element={<AdminUsers />} />
@@ -106,7 +111,7 @@ const App = () => {
                             <Route path='web/banners' element={<AdminWebBanners />} />
                             <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
                             <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
-                            
+
                             <Route path='discounts' element={<AdminDiscounts />} />
                             <Route path='discount-create' element={<AdminDiscountCreate />} />
                             <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
