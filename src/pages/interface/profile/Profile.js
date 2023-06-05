@@ -41,20 +41,23 @@ const Profile = () => {
                         </div>
                         <div className='col-xl-2 border-end my-3'>
                             <b>150</b>
-                            <div>Garaşylýar</div>
+                            <div className='text-muted'>Garaşylýar</div>
                         </div>
                         <div className='col-xl-2 border-end my-3'>
                             <b>267</b>
-                            <div>Kabul edilmedi</div>
+                            <div className='text-muted'>Kabul edilmedi</div>
                         </div>
                         <div className='col-xl-2 my-3'>
                             <b>94</b>
-                            <div>Tassyklandy</div>
+                            <div className='text-muted'>Tassyklandy</div>
                         </div>
-                        <div className='col-xl-12 my-3'>
-                            <button className='btn btn-green' style={{ paddingLeft: "100px", paddingRight: "100px" }}>
+                        <div className='col-xl-12 my-3 d-flex justify-content-center'>
+                            <button className='btn border-green me-2' style={{ paddingLeft: "100px", paddingRight: "100px" }}>
                                 <img src={coin} alt="" className='img-fluid me-2' />
                                 1285
+                            </button>
+                            <button className='btn btn-green ms-2' style={{ paddingLeft: "100px", paddingRight: "100px" }}>
+                                Resmi hasap aç
                             </button>
                         </div>
                     </div>

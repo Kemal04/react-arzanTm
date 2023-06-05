@@ -21,32 +21,34 @@ const OfficalExpired = () => {
                         <div className='col-xl-12 position-relative'>
                             <img src={profile} alt="" className='img-fluid' style={{ marginTop: "-80px" }} />
                         </div>
-                        <div className='col-xl-12 h5 mt-1 mb-3' style={{ color: "#D7D7D7!important" }}>
-                            @100haryt.com
-                        </div>
-                        <div className='col-xl-12 mb-3 ' style={{ color: "#D7D7D7!important" }}>
-                            <img src={phone} alt='' className='img-fluid me-2' />
-                            993 61 000000
-                        </div>
-                        <div className='col-xl-12 mb-3 ' style={{ color: "#D7D7D7!important" }}>
-                            <img src={location} alt='' className='img-fluid me-2' />
-                            Ashgabat
-                        </div>
-                        <div className='col-xl-12 mb-3  d-flex justify-content-center' style={{ color: "#D7D7D7!important" }}>
-                            <div style={{ width: "60%" }}>
-                                Ваш комфорт, наше удовольствие! Мы как интернет-магазин 100haryt предлагаем вам товары на любой вкуc. Компьютеры, телефоны, малая бытовая техника, товары для дома, книги, игрушки для детей и многое другое. Покупка в нашем интернет магазине - это быстро, легко и удобно. Мы еженедельно будем радовать вас скидками, акциями и спец.предложениями.                            </div>
-                        </div>
-                        <div className='col-xl-2 border-end my-3' style={{ color: "#D7D7D7!important" }}>
-                            <b>150</b>
-                            <div>Garaşylýar</div>
-                        </div>
-                        <div className='col-xl-2 border-end my-3' style={{ color: "#D7D7D7!important" }}>
-                            <b>267</b>
-                            <div>Kabul edilmedi</div>
-                        </div>
-                        <div className='col-xl-2 my-3' style={{ color: "#D7D7D7!important" }}>
-                            <b>94</b>
-                            <div>Tassyklandy</div>
+                        <div className='row justify-content-center' style={{ color: "#D7D7D7" }}>
+                            <div className='col-xl-12 h5 mt-1 mb-3'>
+                                @100haryt.com
+                            </div>
+                            <div className='col-xl-12 mb-3 '>
+                                <img src={phone} alt='' className='img-fluid me-2' />
+                                993 61 000000
+                            </div>
+                            <div className='col-xl-12 mb-3 '>
+                                <img src={location} alt='' className='img-fluid me-2' />
+                                Ashgabat
+                            </div>
+                            <div className='col-xl-12 mb-3  d-flex justify-content-center'>
+                                <div style={{ width: "60%" }}>
+                                    Ваш комфорт, наше удовольствие! Мы как интернет-магазин 100haryt предлагаем вам товары на любой вкуc. Компьютеры, телефоны, малая бытовая техника, товары для дома, книги, игрушки для детей и многое другое. Покупка в нашем интернет магазине - это быстро, легко и удобно. Мы еженедельно будем радовать вас скидками, акциями и спец.предложениями.                            </div>
+                            </div>
+                            <div className='col-xl-2 border-end my-3'>
+                                <b>150</b>
+                                <div>Garaşylýar</div>
+                            </div>
+                            <div className='col-xl-2 border-end my-3'>
+                                <b>267</b>
+                                <div>Kabul edilmedi</div>
+                            </div>
+                            <div className='col-xl-2 my-3'>
+                                <b>94</b>
+                                <div>Tassyklandy</div>
+                            </div>
                         </div>
                         <div className='col-xl-12 my-3'>
                             <Link to="/offical/follow" className='btn btn-green me-3' style={{ paddingLeft: "100px", paddingRight: "100px" }}>
