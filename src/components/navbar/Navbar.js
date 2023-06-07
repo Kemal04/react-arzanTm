@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../../context/ThemeContext';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import logo from '../../assets/logo/logo.svg'
 import location from '../../assets/icons/location.svg'
@@ -13,7 +13,7 @@ import user_bold from '../../assets/icons/user-bold.svg'
 import user_tick from '../../assets/icons/user-bold-tick.svg'
 import key from '../../assets/icons/key.svg'
 import not_see from '../../assets/icons/not-see.svg'
-import phone from '../../assets/icons/phone-bold.svg'
+import phone_img from '../../assets/icons/phone-bold.svg'
 
 import profile from '../../assets/icons/mikki.png'
 import haryt100 from '../../assets/cards/offical/circle/100haryt.png'
@@ -28,36 +28,36 @@ import logout_img from '../../assets/icons/logout.svg'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { authLoginUser, authRegisterUser, logout } from '../../redux/slices/auth';
 
 const Navbar = () => {
 
     const { darkMode } = useContext(ThemeContext)
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     //REGISTER
     const [name, setName] = useState("")
-    const [phone_num, setPhoneNum] = useState("")
-    const [password, setPassword] = useState("")
+    const [phone, setPhone] = useState("")
+    const [pass, setPassword] = useState("")
     const [cPassword, setCPassword] = useState("")
 
     const registerUser = async (e) => {
         e.preventDefault();
-
+        dispatch(authRegisterUser({ name, phone, pass }))
     }
 
     //LOGIN
     const [login_name, setLogin_Name] = useState("")
-    const [login_password, setLogin_Password] = useState("")
+    const [login_pass, setLogin_Password] = useState("")
 
     const loginUser = async (e) => {
         e.preventDefault();
-
+        dispatch(authLoginUser({login_name, login_pass}))
     }
 
-    const logout = () => {
-        localStorage.removeItem("accessToken");
-        // setAuthState({ name: "", id: 0, status: false, role: "User" })
-        navigate('/')
+    const handleLogout = () => {
+        dispatch(logout)
     };
 
     const [isVisible1, setVisible1] = useState(false);
@@ -83,7 +83,7 @@ const Navbar = () => {
 
                     {/* LOGO */}
                     <Link to="/" className="navbar-brand ps-2">
-                        <img src={logo} alt="" className='img-fluid' style={{ width: "150px" }} />
+                        <img src={logo} alt="" style={{ width: "120px" }} />
                     </Link>
 
                     {/* RESPONSOVE BUTTON */}
@@ -174,7 +174,7 @@ const Navbar = () => {
                                                             <input value={login_name} onChange={(e) => setLogin_Name(e.target.value)} name='name' className="form-control ps-5" type="text" placeholder="Ulanyjy ady" style={{ background: `url(${user}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
 
                                                             <div className="input-group ms-3 mb-4">
-                                                                <input value={login_password} onChange={(e) => setLogin_Password(e.target.value)} name='password' className="form-control ps-5 mt-4 border-end-0 flex-grow-0" type={!isVisible1 ? "password" : "text"} placeholder="Açar sözi" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
+                                                                <input value={login_pass} onChange={(e) => setLogin_Password(e.target.value)} name='password' className="form-control ps-5 mt-4 border-end-0 flex-grow-0" type={!isVisible1 ? "password" : "text"} placeholder="Açar sözi" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
                                                                 <span className="input-group-text mt-4 bg-white border-start-0" id="basic-addon1" style={{ cursor: "pointer" }} onClick={toggle1}>
                                                                     {isVisible1 ? <FontAwesomeIcon icon={faEye} className='text-muted' /> : <img src={not_see} alt="" className='img-fluid' />}
                                                                 </span>
@@ -205,11 +205,11 @@ const Navbar = () => {
                                                             <input value={name} onChange={(e) => setName(e.target.value)} name='name' className="form-control ps-5 mb-4" type="text" placeholder="Ulanyjy ady" style={{ background: `url(${user}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
 
                                                             <label className="ms-1 mb-1" style={{ fontWeight: "500" }}>Telefon belgisi</label>
-                                                            <input value={phone_num} onChange={(e) => setPhoneNum(e.target.value)} type="number" min="60000000" max="65999999" name='phone_num' className="form-control ps-5 mb-4" placeholder="Telefon belgisi" style={{ background: `url(${phone}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
+                                                            <input value={phone} onChange={(e) => setPhone(e.target.value)} type="number" min="60000000" max="65999999" name='phone' className="form-control ps-5 mb-4" placeholder="Telefon belgisi" style={{ background: `url(${phone_img}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
 
                                                             <div className="input-group mb-4">
                                                                 <label className="mb-2 ms-1" style={{ fontWeight: "500" }}>Açar sözi</label>
-                                                                <input type={!isVisible2 ? "password" : "text"} value={password} onChange={(e) => setPassword(e.target.value)} name='password' className="form-control ps-5 border-end-0 flex-grow-0" placeholder="Açar sözi" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
+                                                                <input type={!isVisible2 ? "password" : "text"} value={pass} onChange={(e) => setPassword(e.target.value)} name='pass' className="form-control ps-5 border-end-0 flex-grow-0" placeholder="Açar sözi" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
                                                                 <span className="input-group-text bg-white border-start-0" id="basic-addon1" style={{ cursor: "pointer" }} onClick={toggle2}>
                                                                     {isVisible2 ? <FontAwesomeIcon icon={faEye} className='text-muted' /> : <img src={not_see} alt="" className='img-fluid' />}
                                                                 </span>
@@ -217,7 +217,7 @@ const Navbar = () => {
 
                                                             <div className="input-group mb-4">
                                                                 <label className="mb-2 ms-1" style={{ fontWeight: "500" }}>Açar sözi (tassykla)</label>
-                                                                <input type={!isVisible3 ? "password" : "text"} value={cPassword} onChange={(e) => setCPassword(e.target.value)} name='confirm_password' className="form-control ps-5 border-end-0 flex-grow-0" placeholder="Açar sözi (tassykla)" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
+                                                                <input type={!isVisible3 ? "password" : "text"} value={cPassword} onChange={(e) => setCPassword(e.target.value)} name='confirm_pass' className="form-control ps-5 border-end-0 flex-grow-0" placeholder="Açar sözi (tassykla)" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />
                                                                 <span className="input-group-text bg-white border-start-0" id="basic-addon1" style={{ cursor: "pointer" }} onClick={toggle3}>
                                                                     {isVisible3 ? <FontAwesomeIcon icon={faEye} className='text-muted' /> : <img src={not_see} alt="" className='img-fluid' />}
                                                                 </span>
@@ -291,7 +291,7 @@ const Navbar = () => {
                                         </li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li>
-                                            <div onClick={logout} className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger" style={{ cursor: "pointer" }}>
+                                            <div onClick={handleLogout} className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger" style={{ cursor: "pointer" }}>
                                                 <img src={logout_img} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
                                                 Ulgamdan çykmak
                                             </div>
@@ -357,7 +357,7 @@ const Navbar = () => {
                                         </li>
                                         <li><hr className="dropdown-divider" /></li>
                                         <li>
-                                            <div onClick={logout} className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger" style={{ cursor: "pointer" }}>
+                                            <div onClick={handleLogout} className="dropdown-item d-flex align-items-center mb-2 pe-4 text-danger" style={{ cursor: "pointer" }}>
                                                 <img src={logout_img} alt='' className='img-fluid me-2' style={{ width: "16px" }} />
                                                 Ulgamdan çykmak
                                             </div>

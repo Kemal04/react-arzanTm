@@ -44,11 +44,12 @@ const Home = () => {
     return (
         <>
             <HomeBanner />
+
             {/* Stories */}
             <Stories />
 
             {/* CARDS */}
-            <div className='container mt-5'>
+            <div className='container mt-3'>
                 <div className='d-flex justify-content-between align-items-center'>
                     <div className='h3'>Saýlananlar</div>
                     <Link to="/" className='bg-green text-white py-1 px-3 rounded-4 text-decoration-none'>Hemmesi <FontAwesomeIcon icon={faArrowRight} /></Link>
