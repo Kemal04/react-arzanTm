@@ -48,12 +48,12 @@ const Navbar = () => {
     }
 
     //LOGIN
-    const [login_name, setLogin_Name] = useState("")
+    const [login_phone, setLogin_phone] = useState("")
     const [login_pass, setLogin_Password] = useState("")
 
     const loginUser = async (e) => {
         e.preventDefault();
-        dispatch(authLoginUser({login_name, login_pass}))
+        dispatch(authLoginUser({login_phone, login_pass}))
     }
 
     const handleLogout = () => {
@@ -171,7 +171,7 @@ const Navbar = () => {
                                                     <div className="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabIndex="0">
                                                         <div className="d-flex justify-content-center align-items-center flex-column">
 
-                                                            <input value={login_name} onChange={(e) => setLogin_Name(e.target.value)} name='name' className="form-control ps-5" type="text" placeholder="Ulanyjy ady" style={{ background: `url(${user}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
+                                                            <input value={login_phone} onChange={(e) => setLogin_phone(e.target.value)} name='name' className="form-control ps-5" type="text" placeholder="Ulanyjy ady" style={{ background: `url(${user}) no-repeat left`, backgroundPositionX: "20px", width: "400px" }} />
 
                                                             <div className="input-group ms-3 mb-4">
                                                                 <input value={login_pass} onChange={(e) => setLogin_Password(e.target.value)} name='password' className="form-control ps-5 mt-4 border-end-0 flex-grow-0" type={!isVisible1 ? "password" : "text"} placeholder="Açar sözi" style={{ background: `url(${key}) no-repeat left`, backgroundPositionX: "20px", width: "360px" }} />

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 const initialState = {
     user: "",
     token: "",
+    status: false,
     isLoading: false,
     isError: false
 }
@@ -13,8 +14,8 @@ const initialState = {
 export const authRegisterUser = createAsyncThunk(
     'register',
     async (body) => {
-        const res = await axios.post(`${Api_Address1}/sign_up`, body)
-            .then(() => {
+        await axios.post(`${Api_Address1}/sign_up`, body)
+            .then((res) => {
                 toast.success("Registered")
                 return res.data
             }).catch((err) => {
@@ -26,8 +27,8 @@ export const authRegisterUser = createAsyncThunk(
 export const authLoginUser = createAsyncThunk(
     'login',
     async (body) => {
-        const res = await axios.post(`${Api_Address1}/sign_in`, body)
-            .then(() => {
+        await axios.post(`${Api_Address1}/checkactivate`, body)
+            .then((res) => {
                 toast.success("Logined")
                 return res.data
             }).catch((err) => {
@@ -57,13 +58,9 @@ const auth = createSlice({
         builder.addCase(authRegisterUser.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(authRegisterUser.fulfilled, (state, { payload: { token, user } }) => {
+        builder.addCase(authRegisterUser.fulfilled, (state) => {
             state.isLoading = false
-            state.user = user
-            state.token = token
-
-            localStorage.setItem("user", user)
-            localStorage.setItem("token", token)
+            state.status = true
         })
         builder.addCase(authRegisterUser.rejected, (state) => {
             state.isError = true
@@ -73,9 +70,13 @@ const auth = createSlice({
         builder.addCase(authLoginUser.pending, (state) => {
             state.isLoading = true
         })
-        builder.addCase(authLoginUser.fulfilled, (state, action) => {
+        builder.addCase(authLoginUser.fulfilled, (state, { payload: { token, status } }) => {
             state.isLoading = false
-            state.user = action.payload
+            state.status = status
+            state.token = token
+
+            localStorage.setItem("status", status)
+            localStorage.setItem("token", token)
         })
         builder.addCase(authLoginUser.rejected, (state) => {
             state.isError = true
