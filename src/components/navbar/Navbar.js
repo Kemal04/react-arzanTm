@@ -53,7 +53,7 @@ const Navbar = () => {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        dispatch(authLoginUser({login_phone, login_pass}))
+        dispatch(authLoginUser({ login_phone, login_pass }))
     }
 
     const handleLogout = () => {
@@ -378,8 +378,34 @@ const Navbar = () => {
                             <h1 className="modal-title fs-5" id="staticBackdropLabel">Myhmanlar <span className='text-green'>(+57)</span></h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div className="modal-body bg-light">
-                            ...
+                        <div className="modal-body" style={{ backgroundColor: "#F9FAFC" }}>
+                            <div className='d-flex align-items-center mb-3'>
+                                <div className='rounded-circle bg-green p-1 small d-inline-block me-3'></div>
+                                <div className='card border-0 py-2 px-3 shadow-sm w-100'>
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className='d-flex align-items-center'>
+                                            <img src={haryt100} alt="" style={{ width: "30px" }} />
+                                            <span className='small ms-2'>Kemal Hojayew</span>
+                                        </div>
+                                        <div className='text-secondary small'>
+                                            5 minut öň
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='d-flex align-items-center mb-3'>
+                                <div className='card border-0 py-2 px-3 shadow-sm w-100'>
+                                    <div className='d-flex justify-content-between align-items-center'>
+                                        <div className='d-flex align-items-center'>
+                                            <img src={haryt100} alt="" style={{ width: "30px" }} />
+                                            <span className='small ms-2'>Kemal Hojayew</span>
+                                        </div>
+                                        <div className='text-secondary small'>
+                                            5 minut öň
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

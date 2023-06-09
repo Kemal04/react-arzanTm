@@ -17,3 +17,10 @@ export { default as OfficalFollow } from "./offical/OfficalFollow"
 export { default as PostAdd } from "./post/PostAdd"
 
 export { default as TopList } from "./topList/TopList"
+
+export { default as Notifications } from "./notification/Notifications"
+export { default as NotificationRead } from "./notification/NotificationRead"
+
+export { default as Notices } from "./notice/Notices"
+export { default as NoticeRead } from "./notice/NoticeRead"
+export { default as NoticeCreate } from "./notice/NoticeCreate"

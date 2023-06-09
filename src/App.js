@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom'
 
-import { Foto, FotoRead, Home, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, TopList, Video } from './pages/interface'
+import { Foto, FotoRead, Home, NoticeCreate, NoticeRead, Notices, Notifications, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, TopList, Video } from './pages/interface'
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
@@ -12,6 +12,7 @@ import ThemeContextProvider, { ThemeContext } from './context/ThemeContext'
 //TOAST
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { NotificationRead } from './pages/interface'
 
 const App = () => {
 
@@ -36,14 +37,20 @@ const App = () => {
                             <Route path='/profile' element={<Profile />} />
                             <Route path='/profile/wallet' element={<ProfileWallet />} />
                             <Route path='/profile/bloked' element={<ProfileBloked />} />
-                            <Route path='/post-gosmak' element={<PostAdd />} />
 
                             <Route path='/offical' element={<Offical />} />
                             <Route path='/offical/follow' element={<OfficalFollow />} />
                             <Route path='/offical/expired' element={<OfficalExpired />} />
                             <Route path='/offical/self' element={<OfficalSelf />} />
+
                             <Route path='/post-gosmak' element={<PostAdd />} />
 
+                            <Route path='/bildirisler' element={<Notifications />} />
+                            <Route path='/bildiris/:notificationId' element={<NotificationRead />} />
+
+                            <Route path='/habarnamalar' element={<Notices />} />
+                            <Route path='/habarnama/:noticeId' element={<NoticeRead />} />
+                            <Route path='/habarnama-gos' element={<NoticeCreate />} />
                         </Route>
 
                         <Route path='/admin' element={<AdminLayout />} >

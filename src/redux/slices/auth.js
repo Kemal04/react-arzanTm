@@ -14,12 +14,12 @@ const initialState = {
 export const authRegisterUser = createAsyncThunk(
     'register',
     async (body) => {
-        await axios.post(`${Api_Address1}/sign_up`, body)
-            .then((res) => {
+        const res = await axios.post(`${Api_Address1}/sign_up`, body)
+            .then(() => {
                 toast.success("Registered")
                 return res.data
             }).catch((err) => {
-                toast.success("Error Register")
+                toast.error(err)
             })
     }
 )
@@ -27,13 +27,14 @@ export const authRegisterUser = createAsyncThunk(
 export const authLoginUser = createAsyncThunk(
     'login',
     async (body) => {
-        await axios.post(`${Api_Address1}/checkactivate`, body)
-            .then((res) => {
-                toast.success("Logined")
-                return res.data
-            }).catch((err) => {
-                toast.success("Error Login")
-            })
+        const res = await axios.post(`${Api_Address1}/checkactivate`, body)
+        console.log(res.data);
+        // .then(() => {
+        //     toast.success("Logined")
+        //     return res.data
+        // }).catch((err) => {
+        //     toast.error(err)
+        // })
     }
 )
 
