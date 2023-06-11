@@ -1,4 +1,4 @@
-import { faHome, faPhotoFilm, faTags, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faListAlt, faPhotoFilm, faTags, faUsers, faVideo, faWallet } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import { useContext } from 'react'
@@ -39,9 +39,21 @@ const AdminSidebar = () => {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/admin/vidoes" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
-                            <FontAwesomeIcon icon={faVideo} className="align-text-bottom me-2" />
-                            Video
+                        <NavLink to="/admin/app/categories" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
+                            <FontAwesomeIcon icon={faListAlt} className="align-text-bottom me-2" />
+                            Categories
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/admin/gallery/video" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
+                            <FontAwesomeIcon icon={faPhotoFilm} className="align-text-bottom me-2" />
+                            Gallery
+                        </NavLink>
+                    </li>
+                    <li className="nav-item">
+                        <NavLink to="/admin/payment" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
+                            <FontAwesomeIcon icon={faWallet} className="align-text-bottom me-2" />
+                            Payment
                         </NavLink>
                     </li>
                 </ul>

@@ -111,7 +111,7 @@ const AdminAppBannerCreate = () => {
             <div className='card border-0 shadow my-5'>
                 <div className={`card-header p-3 ${darkMode ? "bg-dark-blue-footer text-white" : null}`}>
                     <div className='h5'>
-                        <div>Web Banner Create</div>
+                        <div>App Banner Create</div>
                     </div>
                 </div>
                 <div className={`card-body h-auto ${darkMode ? "bg-dark-blue text-white" : ""}`}>

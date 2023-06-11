@@ -5,7 +5,7 @@ import { Foto, FotoRead, Home, NoticeCreate, NoticeRead, Notices, Notifications,
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminCategories, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners } from './pages/admin'
+import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminAppCategory, AdminAppCategoryCreate, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminPhoto, AdminPhotoCreate, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminVideo, AdminVideoCreate, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners, AdminWebCategory, AdminWebCategoryCreate } from './pages/admin'
 
 import ThemeContextProvider, { ThemeContext } from './context/ThemeContext'
 
@@ -56,24 +56,35 @@ const App = () => {
                         <Route path='/admin' element={<AdminLayout />} >
                             <Route path='' element={<Admin />} />
 
-                            <Route path='categories' element={<AdminCategories />} />
-
                             <Route path='offical/users' element={<AdminOffical />} />
                             <Route path='users' element={<AdminUsers />} />
                             <Route path='top-users' element={<AdminTopUsers />} />
                             <Route path='user-create' element={<AdminUserCreate />} />
                             <Route path='user-edit/:userId' element={<AdminUserEdit />} />
 
+                            <Route path='discounts' element={<AdminDiscounts />} />
+                            <Route path='discount-create' element={<AdminDiscountCreate />} />
+                            <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+                            
+                            <Route path='gallery/photo' element={<AdminPhoto />} />
+                            <Route path='gallery/photo-create' element={<AdminPhotoCreate />} />
+                            <Route path='gallery/video' element={<AdminVideo />} />
+                            <Route path='gallery/video-create' element={<AdminVideoCreate />} />
+
+                            {/* WEB */}
                             <Route path='web/banners' element={<AdminWebBanners />} />
                             <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
                             <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
 
-                            <Route path='discounts' element={<AdminDiscounts />} />
-                            <Route path='discount-create' element={<AdminDiscountCreate />} />
-                            <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+                            <Route path='web/categories' element={<AdminWebCategory />} />
+                            <Route path='web/category-create' element={<AdminWebCategoryCreate />} />
 
+                            {/* APP */}
                             <Route path='app/banners' element={<AdminAppBanners />} />
                             <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
+
+                            <Route path='app/categories' element={<AdminAppCategory />} />
+                            <Route path='app/category-create' element={<AdminAppCategoryCreate />} />
                         </Route>
 
                     </Routes>
