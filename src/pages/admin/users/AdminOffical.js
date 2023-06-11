@@ -57,21 +57,20 @@ const AdminOffical = () => {
                         </div>
                         <div className='col-xl-5 col-lg-5 col-md-5 col-12'>
                             <div className='row justify-content-end g-3'>
-                                <div className='col-xl-4 col-lg-3 col-md-3 col-6'>
-                                    <div className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-dark text-decoration-none' style={{ border: "1px solid #7280FF" }}>
-                                        <FontAwesomeIcon icon={faPlus} className='me-1' />
-                                        Add User
-                                    </div>
-                                </div>
                                 <div className='col-xl-8 col-lg-3 col-md-3 col-6'>
                                     <div className="input-group">
                                         <input className="form-control form-control-sm ps-5 fw-bold" type="text" placeholder="Search..." style={{ background: `url(${search}) no-repeat left`, backgroundPositionX: "20px" }} aria-describedby="basic-addon1" />
                                         <span className="input-group-text py-0 bg-white" id="basic-addon1">Search</span>
                                     </div>
                                 </div>
+                                <div className='col-xl-4 col-lg-3 col-md-3 col-6'>
+                                    <Link to='/admin/user-create' className='d-flex align-items-center justify-content-center py-1 px-2 rounded-2 small fw-bold text-dark text-decoration-none' style={{ border: "1px solid #7280FF" }}>
+                                        <FontAwesomeIcon icon={faPlus} className='me-1' />
+                                        Add User
+                                    </Link>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div className={`card-body p-3 ${darkMode ? "bg-dark-blue text-white" : ""}`}>

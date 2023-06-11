@@ -21,9 +21,9 @@ const AdminSidebar = () => {
                         </NavLink>
                     </li>
                     <li className="nav-item">
-                        <NavLink to="/admin/offical/users" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
+                        <NavLink to="/admin/users" className={`nav-link d-flex align-items-center ${darkMode ? "text-white" : "text-dark"}`}>
                             <FontAwesomeIcon icon={faUsers} className="align-text-bottom me-2" />
-                            Official user
+                            Users
                         </NavLink>
                     </li>
                     <li className="nav-item">
