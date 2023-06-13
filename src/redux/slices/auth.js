@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios';
 import Api_Address1 from '../../env1';
-import { toast } from 'react-toastify';
 
 const initialState = {
     user: "",
@@ -15,12 +14,13 @@ export const authRegisterUser = createAsyncThunk(
     'register',
     async (body) => {
         const res = await axios.post(`${Api_Address1}/sign_up`, body)
-            .then(() => {
-                toast.success("Registered")
-                return res.data
-            }).catch((err) => {
-                toast.error(err)
-            })
+            console.log(res.data)
+            // .then(() => {
+            //     toast.success("Registered")
+            //     return res.data
+            // }).catch((err) => {
+            //     toast.error(err)
+            // })
     }
 )
 
@@ -28,7 +28,7 @@ export const authLoginUser = createAsyncThunk(
     'login',
     async (body) => {
         const res = await axios.post(`${Api_Address1}/checkactivate`, body)
-        console.log(res.data);
+        console.log(res.data)
         // .then(() => {
         //     toast.success("Logined")
         //     return res.data

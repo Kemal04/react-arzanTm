@@ -30,6 +30,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { authLoginUser, authRegisterUser, logout } from '../../redux/slices/auth';
+import axios from 'axios';
+import Api_Address1 from '../../env1';
 
 const Navbar = () => {
 
@@ -75,6 +77,15 @@ const Navbar = () => {
     const toggle3 = () => {
         setVisible3(!isVisible3);
     };
+
+    const checkSMS = async (e) => {
+        e.preventDefault();
+
+        console.log(phone);
+
+        const res = await axios.post(`${Api_Address1}/checkactivate`, phone)
+        console.log(res);
+    }
 
     return (
         <>
@@ -238,11 +249,24 @@ const Navbar = () => {
                                                         </div>
 
                                                         <div className="border-0 d-grid mt-3" style={{ justifyContent: 'unset' }}>
-                                                            <button onClick={registerUser} type="button" className="btn btn-green">Ulgama gir</button>
+                                                            <button onClick={registerUser} data-bs-toggle="modal" data-bs-target="#exampleModalVertification" type="button" className="btn btn-green">Ulgama gir</button>
                                                         </div>
                                                     </div>
                                                     {/* Register */}
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="modal fade" id="exampleModalVertification" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div className="modal-dialog">
+                                        <div className="modal-content px-4 py-2">
+                                            <div className="modal-header d-flex justify-content-center border-0">
+                                                dsfg
+                                            </div>
+                                            <div className="modal-body">
+                                                <button className='btn btn-primary' onClick={checkSMS}>SMS ugratdym</button>
                                             </div>
                                         </div>
                                     </div>
