@@ -87,7 +87,6 @@ const AdminUsers = () => {
                         </thead>
                         <tbody>
                             {
-
                                 users.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((user, index) => (
                                     user.role === "User" && (
                                         <tr key={index}>

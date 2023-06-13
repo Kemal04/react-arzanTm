@@ -1,17 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 import img_icon from '../../../assets/icons/img.svg'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { creatBanner } from '../../../redux/slices/banner'
-import axios from 'axios'
-import Api_Address from '../../../env'
 
 const AdminAppBannerCreate = () => {
 
+    //CONSTS
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    //DARK MODE
     const { darkMode } = useContext(ThemeContext)
 
+    //IMAGE SAVE
     const [image, setImage] = useState(null)
 
     const onImageChange = (event) => {
@@ -21,9 +25,7 @@ const AdminAppBannerCreate = () => {
         setImg(event.target.files[0])
     }
 
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-
+    //DATAS
     const [img, setImg] = useState('')
     const [banner, setBanner] = useState({
         title: "",
@@ -32,9 +34,9 @@ const AdminAppBannerCreate = () => {
         note: "",
         start_date: "",
         end_date: "",
-        pageId: "",
+        pageId: "1",
         welayat: "",
-        type: "app",
+        type: "App",
         checked: "1",
     })
 
@@ -90,21 +92,6 @@ const AdminAppBannerCreate = () => {
             navigate("/admin/app/banners")
         }
     }
-
-    const [pages, setPages] = useState([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            await axios.get(`${Api_Address}/api/v1/page`, {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken"),
-                }
-            }).then((res) => {
-                setPages(res.data.pages)
-            })
-        }
-        fetchData()
-    }, [])
 
     return (
         <>
@@ -184,9 +171,9 @@ const AdminAppBannerCreate = () => {
                         <div className='col-xl-3 ms-auto'>
                             <select name='pageId' className="form-select form-select-sm" onChange={handleChange}>
                                 <option defaultValue>Pages</option>
-                                {pages.map((page, index) => (
+                                {/* {pages.map((page, index) => (
                                     <option key={index} value={page.id}>{page.name}</option>
-                                ))}
+                                ))} */}
                             </select>
                         </div>
 

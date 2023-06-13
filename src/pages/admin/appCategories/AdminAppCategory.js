@@ -1,13 +1,33 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGlobe, faMobileAlt, faPenAlt, faPhotoFilm, faPlus, faStar, faTh, faTrashAlt, faVideo } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../../../context/ThemeContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import img_1 from '../../../assets/category/1.png'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteCategory, getAllCategories } from '../../../redux/slices/category'
 
 const AdminAppCategory = () => {
 
+
     const { darkMode } = useContext(ThemeContext)
+
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const { categories } = useSelector(state => state.categories)
+
+    console.log(categories);
+
+    useEffect(() => {
+        dispatch(getAllCategories())
+    }, [dispatch])
+
+    const handleDelete = async (id) => {
+        dispatch(deleteCategory(id))
+        navigate("/admin/app/categories")
+    }
+
 
     return (
         <>
@@ -76,25 +96,28 @@ const AdminAppCategory = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row" style={{ fontSize: "15px" }}>1</th>
-                                <th>
-                                    <div className='d-flex align-items-center'>
-                                        <img src={img_1} alt="" style={{ width: "100px" }} />
-                                        <div className='ms-4'>
-                                            <div style={{ fontSize: "15px", fontWeight: "700" }}>Hemmesi</div>
-                                        </div>
-                                    </div>
-                                </th>
-                                <th>1</th>
-                                <th>13-04-2023  10:35</th>
-                                <th>
-                                    <div className='d-flex align-items-center justify-content-between'>
-                                        <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} />
-                                        <Link to={`/admin/app/category-edit/`} className='text-decoration-none'><FontAwesomeIcon icon={faPenAlt} className='text-green' /></Link>
-                                    </div>
-                                </th>
-                            </tr>
+                            {
+                                categories.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((category, index) => (
+                                    <tr key={index}>
+                                        <th scope="row" style={{ fontSize: "15px" }}>1</th>
+                                        <th>
+                                            <div className='d-flex align-items-center'>
+                                                <img src={img_1} alt="" style={{ width: "100px" }} />
+                                                <div className='ms-4'>
+                                                    <div style={{ fontSize: "15px", fontWeight: "700" }}>{category.name}</div>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <th>1</th>
+                                        <th>{category.updatedAt}</th>
+                                        <th>
+                                            <div className='d-flex align-items-center justify-content-between'>
+                                                <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} />
+                                                <Link to={`/admin/app/category-edit/`} className='text-decoration-none'><FontAwesomeIcon icon={faPenAlt} className='text-green' /></Link>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                ))}
                         </tbody>
                     </table>
                 </div>
