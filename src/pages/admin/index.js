@@ -1,5 +1,7 @@
 export { default as Admin } from "./main/Admin"
 
+export { default as AdminLogin } from "./auth/AdminLogin"
+
 export { default as AdminOffical } from "./users/AdminOffical"
 export { default as AdminUsers } from "./users/AdminUsers"
 export { default as AdminTopUsers } from "./users/AdminTopUsers"

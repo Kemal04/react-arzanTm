@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router, Outlet, Route, Routes } from 'react-router-dom'
 
 import { Foto, FotoRead, Home, NoticeCreate, NoticeRead, Notices, Notifications, Offical, OfficalExpired, OfficalFollow, OfficalSelf, PostAdd, Profile, ProfileBloked, ProfileWallet, TopList, Video } from './pages/interface'
 
 import { AdminNavbar, AdminSidebar, Footer, Navbar, ScrollToTop } from './components'
 
-import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminAppCategory, AdminAppCategoryCreate, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminOffical, AdminPhoto, AdminPhotoCreate, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminVideo, AdminVideoCreate, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners, AdminWebCategory, AdminWebCategoryCreate } from './pages/admin'
+import { Admin, AdminAppBannerCreate, AdminAppBanners, AdminAppCategory, AdminAppCategoryCreate, AdminDiscountCreate, AdminDiscountEdit, AdminDiscounts, AdminLogin, AdminOffical, AdminPhoto, AdminPhotoCreate, AdminTopUsers, AdminUserCreate, AdminUserEdit, AdminUsers, AdminVideo, AdminVideoCreate, AdminWebBannerCreate, AdminWebBannerEdit, AdminWebBanners, AdminWebCategory, AdminWebCategoryCreate } from './pages/admin'
 
 import ThemeContextProvider, { ThemeContext } from './context/ThemeContext'
 
@@ -13,83 +13,117 @@ import ThemeContextProvider, { ThemeContext } from './context/ThemeContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { NotificationRead } from './pages/interface'
+import axios from 'axios'
+import Api_Address1 from './env1'
+import { AuthContext } from './context/AuthContext'
 
 const App = () => {
 
+    const [authState, setAuthState] = useState({
+        name_surname: "",
+        id: 0,
+        status: false,
+        role: "Guest",
+    });
+
+    useEffect(() => {
+        axios.get(`${Api_Address1}/userinformation`, {
+            headers: {
+                accessToken: localStorage.getItem("accessToken"),
+            },
+        }).then((res) => {
+            if (res.data.error) {
+                setAuthState({ ...authState, status: false, role: "User" });
+            } else {
+                setAuthState({
+                    name_surname: res.data.name_surname,
+                    id: res.data.id,
+                    status: true,
+                    role: res.data.role,
+                });
+            }
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <>
-            <ThemeContextProvider>
-                <Router>
-                    <ScrollToTop />
-                    <ToastContainer />
-                    <Routes>
+            <AuthContext.Provider value={{ authState, setAuthState }}>
+                <ThemeContextProvider>
+                    <Router>
+                        <ScrollToTop />
+                        <ToastContainer />
+                        <Routes>
 
-                        <Route path='/' element={<HomeLayout />} >
-                            <Route path='/' element={<Home />} />
+                            <Route path='/' element={<HomeLayout />} >
+                                <Route path='/' element={<Home />} />
 
-                            <Route path='/foto' element={<Foto />} />
-                            <Route path='/foto/arzanTm' element={<FotoRead />} />
+                                <Route path='/foto' element={<Foto />} />
+                                <Route path='/foto/arzanTm' element={<FotoRead />} />
 
-                            <Route path='/video' element={<Video />} />
+                                <Route path='/video' element={<Video />} />
 
-                            <Route path='/top-list' element={<TopList />} />
+                                <Route path='/top-list' element={<TopList />} />
 
-                            <Route path='/profile' element={<Profile />} />
-                            <Route path='/profile/wallet' element={<ProfileWallet />} />
-                            <Route path='/profile/bloked' element={<ProfileBloked />} />
+                                <Route path='/profile' element={<Profile />} />
+                                <Route path='/profile/wallet' element={<ProfileWallet />} />
+                                <Route path='/profile/bloked' element={<ProfileBloked />} />
 
-                            <Route path='/offical' element={<Offical />} />
-                            <Route path='/offical/follow' element={<OfficalFollow />} />
-                            <Route path='/offical/expired' element={<OfficalExpired />} />
-                            <Route path='/offical/self' element={<OfficalSelf />} />
+                                <Route path='/offical' element={<Offical />} />
+                                <Route path='/offical/follow' element={<OfficalFollow />} />
+                                <Route path='/offical/expired' element={<OfficalExpired />} />
+                                <Route path='/offical/self' element={<OfficalSelf />} />
 
-                            <Route path='/post-gosmak' element={<PostAdd />} />
+                                <Route path='/post-gosmak' element={<PostAdd />} />
 
-                            <Route path='/bildirisler' element={<Notifications />} />
-                            <Route path='/bildiris/:notificationId' element={<NotificationRead />} />
+                                <Route path='/bildirisler' element={<Notifications />} />
+                                <Route path='/bildiris/:notificationId' element={<NotificationRead />} />
 
-                            <Route path='/habarnamalar' element={<Notices />} />
-                            <Route path='/habarnama/:noticeId' element={<NoticeRead />} />
-                            <Route path='/habarnama-gos' element={<NoticeCreate />} />
-                        </Route>
+                                <Route path='/habarnamalar' element={<Notices />} />
+                                <Route path='/habarnama/:noticeId' element={<NoticeRead />} />
+                                <Route path='/habarnama-gos' element={<NoticeCreate />} />
+                            </Route>
 
-                        <Route path='/admin' element={<AdminLayout />} >
-                            <Route path='' element={<Admin />} />
+                            <Route path='/admin' element={<AdminLayout />} >
+                                <Route path='' element={<Admin />} />
 
-                            <Route path='offical/users' element={<AdminOffical />} />
-                            <Route path='users' element={<AdminUsers />} />
-                            <Route path='top-users' element={<AdminTopUsers />} />
-                            <Route path='user-create' element={<AdminUserCreate />} />
-                            <Route path='user-edit/:userId' element={<AdminUserEdit />} />
+                                <Route path='offical/users' element={<AdminOffical />} />
+                                <Route path='users' element={<AdminUsers />} />
+                                <Route path='top-users' element={<AdminTopUsers />} />
+                                <Route path='user-create' element={<AdminUserCreate />} />
+                                <Route path='user-edit/:userId' element={<AdminUserEdit />} />
 
-                            <Route path='discounts' element={<AdminDiscounts />} />
-                            <Route path='discount-create' element={<AdminDiscountCreate />} />
-                            <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+                                <Route path='discounts' element={<AdminDiscounts />} />
+                                <Route path='discount-create' element={<AdminDiscountCreate />} />
+                                <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+
+                                <Route path='gallery/photo' element={<AdminPhoto />} />
+                                <Route path='gallery/photo-create' element={<AdminPhotoCreate />} />
+                                <Route path='gallery/video' element={<AdminVideo />} />
+                                <Route path='gallery/video-create' element={<AdminVideoCreate />} />
+
+                                {/* WEB */}
+                                <Route path='web/banners' element={<AdminWebBanners />} />
+                                <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
+                                <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
+
+                                <Route path='web/categories' element={<AdminWebCategory />} />
+                                <Route path='web/category-create' element={<AdminWebCategoryCreate />} />
+
+                                {/* APP */}
+                                <Route path='app/banners' element={<AdminAppBanners />} />
+                                <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
+
+                                <Route path='app/categories' element={<AdminAppCategory />} />
+                                <Route path='app/category-create' element={<AdminAppCategoryCreate />} />
+                            </Route>
+
+                            <Route path='/admin/login' element={<AdminLogin />} />
                             
-                            <Route path='gallery/photo' element={<AdminPhoto />} />
-                            <Route path='gallery/photo-create' element={<AdminPhotoCreate />} />
-                            <Route path='gallery/video' element={<AdminVideo />} />
-                            <Route path='gallery/video-create' element={<AdminVideoCreate />} />
-
-                            {/* WEB */}
-                            <Route path='web/banners' element={<AdminWebBanners />} />
-                            <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
-                            <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
-
-                            <Route path='web/categories' element={<AdminWebCategory />} />
-                            <Route path='web/category-create' element={<AdminWebCategoryCreate />} />
-
-                            {/* APP */}
-                            <Route path='app/banners' element={<AdminAppBanners />} />
-                            <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
-
-                            <Route path='app/categories' element={<AdminAppCategory />} />
-                            <Route path='app/category-create' element={<AdminAppCategoryCreate />} />
-                        </Route>
-
-                    </Routes>
-                </Router>
-            </ThemeContextProvider>
+                        </Routes>
+                    </Router>
+                </ThemeContextProvider>
+            </AuthContext.Provider>
         </>
     )
 }

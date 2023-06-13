@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Api_Address from "../../env";
+import Api_Address1 from "../../env1";
 
 const initialState = {
     banners: [],
@@ -13,31 +13,30 @@ const initialState = {
 export const getAllBanners = createAsyncThunk(
     "banners/getAll",
     async () => {
-        const { data } = await axios.get(`${Api_Address}/api/v1/banner`)
-        return data.banners
+        const { data } = await axios.get(`${Api_Address1}/banners`)
+        return data
     }
 );
 
 export const creatBanner = createAsyncThunk(
     "banner/create",
     async (formData) => {
-        debugger
-        await axios.post(`${Api_Address}/api/v1/banner/create`, formData, {
-            headers: {
-                accessToken: localStorage.getItem("accessToken"),
-            },
-        }).then((res) => {
-            toast.success(res.data.success)
-        }).catch((res) => {
-            toast.error(res.response.data.error)
-        });
+        const email = localStorage.getItem("email");
+        const token = localStorage.getItem("accessToken");
+        await axios.post(`${Api_Address1}/adminbannerlist`, { formData, token, email })
+            .then((res) => {
+                console.log(res);
+                toast.success(res.data.success)
+            }).catch((res) => {
+                toast.error(res.response.data.error)
+            });
     }
 );
 
 export const updateBanner = createAsyncThunk(
     "banner/update",
     async (banner) => {
-        await axios.post(`${Api_Address}/api/banner/edit/${banner.id}`, banner, {
+        await axios.post(`${Api_Address1}/banners/edit/${banner.id}`, banner, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -54,7 +53,7 @@ export const updateBanner = createAsyncThunk(
 export const deleteBanner = createAsyncThunk(
     "banner/delete",
     async (id) => {
-        const { data } = await axios.delete(`${Api_Address}/api/v1/banner/delete/${id}`, {
+        const { data } = await axios.delete(`${Api_Address1}/banners/delete/${id}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -80,7 +79,6 @@ const bannerSlice = createSlice({
             state.isError = true
         })
 
-
         builder.addCase(creatBanner.pending, (state, action) => {
             state.isLoading = true
         })
@@ -91,7 +89,6 @@ const bannerSlice = createSlice({
             state.isError = true
         })
 
-
         builder.addCase(updateBanner.pending, (state, action) => {
             state.isLoading = true
         })
@@ -101,7 +98,6 @@ const bannerSlice = createSlice({
         builder.addCase(updateBanner.rejected, (state, action) => {
             state.isError = true
         })
-
 
         builder.addCase(deleteBanner.fulfilled, (state, action) => {
             const newList = state.banners.filter((x) => x.id !== action.payload)

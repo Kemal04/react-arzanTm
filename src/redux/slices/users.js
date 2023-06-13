@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Api_Address from "../../env";
+import Api_Address1 from "../../env1";
 
 const initialState = {
     users: [],
@@ -14,8 +14,8 @@ const initialState = {
 export const getAllUsers = createAsyncThunk(
     "users/getAll",
     async () => {
-        const { data } = await axios.get(`${Api_Address}/api/v1/user`)
-        const users = data.users;
+        const res = await axios.get(`${Api_Address1}/kanallar`)
+        const users = res.data;
         return { users: users };
     }
 )
@@ -23,7 +23,7 @@ export const getAllUsers = createAsyncThunk(
 export const deleteUsers = createAsyncThunk(
     "users/delete",
     async (id) => {
-        const { data } = await axios.delete(`${Api_Address}/api/v1/user/delete/${id}`, {
+        const { data } = await axios.delete(`${Api_Address1}/kanallar/${id}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
