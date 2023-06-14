@@ -30,10 +30,10 @@ const AdminWebBannerCreate = () => {
         note: "",
         start_date: "",
         end_date: "",
-        pageId: "",
+        pageId: 1,
         welayat: "",
-        type: "web",
-        checked: "1",
+        type: "Web",
+        checked: 1,
     })
 
     const handleChange = (e) => {
@@ -55,6 +55,8 @@ const AdminWebBannerCreate = () => {
         formData.append('welayat', banner.welayat)
         formData.append('type', banner.type)
         formData.append('checked', banner.checked)
+        formData.append('email', localStorage.getItem("email"))
+        formData.append('token', localStorage.getItem("token"))
 
         if (!img) {
             toast.error("Surat yok")
@@ -144,7 +146,7 @@ const AdminWebBannerCreate = () => {
                         <div className='col-xl-12 mb-4'>
                             <div className="input-group">
                                 <span className="input-group-text bg-white justify-content-center" style={{ width: "100px" }} id="basic-addon1">Priority</span>
-                                <input name='priority' onChange={handleChange} type="text" className="form-control" aria-describedby="basic-addon1" />
+                                <input name='priority' onChange={handleChange} type="number" className="form-control" aria-describedby="basic-addon1" />
                             </div>
                         </div>
                         <div className='col-xl-12 mb-4'>

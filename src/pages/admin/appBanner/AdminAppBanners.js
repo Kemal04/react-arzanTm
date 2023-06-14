@@ -14,8 +14,6 @@ const AdminAppBanners = () => {
 
     const { banners } = useSelector(state => state.banner)
 
-    console.log(banners);
-
     useEffect(() => {
         dispatch(getAllBanners())
     }, [dispatch])

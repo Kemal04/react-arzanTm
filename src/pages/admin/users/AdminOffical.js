@@ -91,7 +91,7 @@ const AdminOffical = () => {
                                 users.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((user, index) => (
                                     user.role === "Offical" && (
                                         <tr key={index}>
-                                            <th scope="row" style={{ fontSize: "15px" }}>35477</th>
+                                            <th scope="row" style={{ fontSize: "15px" }}>{index + 1}</th>
                                             <td>
                                                 <div className='d-flex align-items-center'>
                                                     <img src={haryt100} alt="" style={{ width: "40px" }} />
@@ -101,11 +101,11 @@ const AdminOffical = () => {
                                                     </div>
                                                 </div>
                                             </td>
-                                            <th>+993 {user.phone_num}</th>
+                                            <th>+{user.phone}</th>
                                             <th>{user.role}</th>
                                             <th className='lh-sm'>
-                                                <div>{moment(user.createdAt).format("DD-MM-YYYY")}</div>
-                                                <div>{moment(user.createdAt).format("DD-MM-YYYY")}</div>
+                                                <div>{moment(user.start_date).format("DD-MM-YYYY")}</div>
+                                                <div>{moment(user.end_date).format("DD-MM-YYYY")}</div>
                                             </th>
                                             <th>
                                                 <div className='d-flex align-items-center justify-content-between'>

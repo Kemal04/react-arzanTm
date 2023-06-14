@@ -21,14 +21,12 @@ export const getAllBanners = createAsyncThunk(
 export const creatBanner = createAsyncThunk(
     "banner/create",
     async (formData) => {
-        const email = localStorage.getItem("email");
-        const token = localStorage.getItem("accessToken");
-        await axios.post(`${Api_Address1}/adminbannerupload`, { formData, token, email })
-            .then((res) => {
-                console.log(res);
-                toast.success(res.data.success)
-            }).catch((res) => {
-                toast.error(res.response.data.error)
+        const { data } = await axios.post(`${Api_Address1}/adminbannerupload`, formData)
+            .then(() => {
+                console.log(data);
+                toast.success(data.success)
+            }).catch(() => {
+                toast.error(data.error)
             });
     }
 );
@@ -53,7 +51,7 @@ export const updateBanner = createAsyncThunk(
 export const deleteBanner = createAsyncThunk(
     "banner/delete",
     async (id) => {
-        const { data } = await axios.delete(`${Api_Address1}/banners/delete/${id}`, {
+        const { data } = await axios.delete(`https://it.net.tm/arzanapi/api/v1/banner/delete/${id}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },

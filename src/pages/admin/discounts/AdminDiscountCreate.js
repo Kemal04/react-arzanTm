@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
-import axios from 'axios'
-import Api_Address1 from '../../../env1'
 import { createDiscount } from '../../../redux/slices/discount'
 import img_icon from '../../../assets/icons/img.svg'
 
@@ -68,7 +66,7 @@ const AdminDiscountCreate = () => {
         formData.append('publishDiscount', publishDiscount)
         formData.append('welayat', discount.welayat)
         formData.append('subcategoryId', discount.subcategoryId)
-        formData.append('checked', "1")
+        formData.append('checked', discount.checked)
 
         if (!img) {
             toast.error("Surat yok")

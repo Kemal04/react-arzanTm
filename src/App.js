@@ -95,7 +95,7 @@ const App = () => {
                                     <Route path='users' element={<AdminUsers />} />
                                     <Route path='top-users' element={<AdminTopUsers />} />
                                     <Route path='user-create' element={<AdminUserCreate />} />
-                                    <Route path='user-edit/:userId' element={<AdminUserEdit />} />
+                                    <Route path='user-edit/:user_id' element={<AdminUserEdit />} />
 
                                     <Route path='discounts' element={<AdminDiscounts />} />
                                     <Route path='discount-create' element={<AdminDiscountCreate />} />

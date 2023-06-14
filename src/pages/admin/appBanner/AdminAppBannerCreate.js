@@ -34,9 +34,10 @@ const AdminAppBannerCreate = () => {
         note: "",
         start_date: "",
         end_date: "",
-        pageId: "1",
+        pageId: 1,
         welayat: "",
         type: "App",
+        checked: "1"
     })
 
     const handleChange = (e) => {
@@ -57,6 +58,7 @@ const AdminAppBannerCreate = () => {
         formData.append('pageId', banner.pageId)
         formData.append('welayat', banner.welayat)
         formData.append('type', banner.type)
+        formData.append('checked', banner.checked)
 
         if (!img) {
             toast.error("Surat yok")
@@ -99,7 +101,7 @@ const AdminAppBannerCreate = () => {
                         <div>App Banner Create</div>
                     </div>
                 </div>
-                <div className={`card-body h-auto ${darkMode ? "bg-dark-blue text-white" : ""}`}>
+                <form encType="multipart/form-data" className={`card-body h-auto ${darkMode ? "bg-dark-blue text-white" : ""}`}>
                     <div className='row align-items-center'>
                         <div className='col-xl-6 mb-4'>
                             {
@@ -144,7 +146,7 @@ const AdminAppBannerCreate = () => {
                         <div className='col-xl-12 mb-4'>
                             <div className="input-group">
                                 <span className="input-group-text bg-white justify-content-center" style={{ width: "100px" }} id="basic-addon1">Priority</span>
-                                <input name='priority' onChange={handleChange} type="text" className="form-control" aria-describedby="basic-addon1" />
+                                <input name='priority' onChange={handleChange} type="number" className="form-control" aria-describedby="basic-addon1" />
                             </div>
                         </div>
                         <div className='col-xl-12 mb-4'>
@@ -179,7 +181,7 @@ const AdminAppBannerCreate = () => {
                             <button onClick={handleClick} className='btn btn-primary' style={{ backgroundColor: '#0500FF', padding: "10px 160px" }}>Apply</button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </>
     )
