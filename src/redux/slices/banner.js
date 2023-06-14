@@ -23,7 +23,7 @@ export const creatBanner = createAsyncThunk(
     async (formData) => {
         const email = localStorage.getItem("email");
         const token = localStorage.getItem("accessToken");
-        await axios.post(`${Api_Address1}/adminbannerlist`, { formData, token, email })
+        await axios.post(`${Api_Address1}/adminbannerupload`, { formData, token, email })
             .then((res) => {
                 console.log(res);
                 toast.success(res.data.success)

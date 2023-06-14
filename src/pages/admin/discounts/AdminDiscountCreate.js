@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import Api_Address from '../../../env'
+import Api_Address1 from '../../../env1'
 import { createDiscount } from '../../../redux/slices/discount'
 import img_icon from '../../../assets/icons/img.svg'
 
@@ -118,21 +118,6 @@ const AdminDiscountCreate = () => {
         }
     }
 
-    const [subcategories, setSubcategories] = useState([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            await axios.get(`${Api_Address}/api/v1/discount/create`, {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken"),
-                }
-            }).then((res) => {
-                setSubcategories(res.data.subcategory)
-            })
-        }
-        fetchData()
-    }, [])
-
     return (
         <>
             <div className='card border-0 shadow my-5'>
@@ -187,9 +172,9 @@ const AdminDiscountCreate = () => {
                         <div className='col-xl-6 mb-4'>
                             <select name='subcategoryId' className="form-select form-select-sm" onChange={handleChange}>
                                 <option defaultValue>Select Subcategory</option>
-                                {subcategories.map((subcategory, index) => (
+                                {/* {subcategories.map((subcategory, index) => (
                                     <option key={index} value={subcategory.id}>{subcategory.name}</option>
-                                ))}
+                                ))} */}
                             </select>
                         </div>
                         <div className='col-xl-6 mb-4'>

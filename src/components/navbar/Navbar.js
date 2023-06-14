@@ -29,7 +29,6 @@ import logout_img from '../../assets/icons/logout.svg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
-import { authLoginUser, authRegisterUser, logout } from '../../redux/slices/auth';
 import axios from 'axios';
 import Api_Address1 from '../../env1';
 
@@ -46,7 +45,6 @@ const Navbar = () => {
 
     const registerUser = async (e) => {
         e.preventDefault();
-        dispatch(authRegisterUser({ name, phone, pass }))
     }
 
     //LOGIN
@@ -55,11 +53,10 @@ const Navbar = () => {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        dispatch(authLoginUser({ login_phone, login_pass }))
     }
 
     const handleLogout = () => {
-        dispatch(logout)
+
     };
 
     const [isVisible1, setVisible1] = useState(false);

@@ -1,63 +1,32 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../../context/ThemeContext'
-import user from '../../../assets/cards/posts/100haryt.png'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBan, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
-import Api_Address from '../../../env'
+import Api_Address1 from '../../../env1'
 import { toast } from 'react-toastify'
 
 const AdminUserEdit = () => {
+
     const { darkMode } = useContext(ThemeContext)
-
-    let { userId } = useParams();
-    const [user, setUser] = useState("");
-
-    useEffect(() => {
-        axios.get(`${Api_Address}/api/v1/user/${userId}`).then((res) => {
-            setUser(res.data.user);
-        });
-    }, [userId]);
-
     const navigate = useNavigate()
 
-    const [eUser, setEUser] = useState({
-        role: "",
-    })
-
-    const handleChange = (e) => {
-        setEUser((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-    }
-
-    useEffect(() => {
-        axios.get(`${Api_Address}/api/v1/user/edit/${userId}`, {
-            headers: {
-                accessToken: localStorage.getItem("accessToken"),
-            },
-        })
-            .then((res) => {
-                setEUser(res.data.user)
-            }).catch((error) => {
-                toast.error(error.message)
-            })
-
-    }, [userId])
+    
+    let { userId } = useParams();
+    const role = "Offical"
+    const email = localStorage.getItem('email')
+    const token = localStorage.getItem('accessToken')
 
     const handleClick = async (e) => {
         e.preventDefault()
 
-        if (!eUser.role) {
+        if (!role) {
             toast.error("Rolyny saylan")
         }
         else {
-            await axios.post(`${Api_Address}/api/v1/user/edit/${userId}`, eUser, {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken"),
-                },
-            }).then((res) => {
+            console.log(role, email, token, userId);
+            await axios.post(`${Api_Address1}/adminuserrole/${userId}`, { role, email, token }).then((res) => {
                 toast.success(res.data.success)
                 navigate(`/admin/users`)
             }).catch((error) => {
@@ -65,6 +34,7 @@ const AdminUserEdit = () => {
             });
         }
     }
+
 
     return (
         <>
@@ -77,7 +47,7 @@ const AdminUserEdit = () => {
                 <div className={`card-body d-flex justify-content-center align-items-center ${darkMode ? "bg-dark-blue text-white" : ""}`} style={{ height: "711px" }}>
                     <div className='row justify-content-center'>
                         <div className='col-xl-12'>
-                            <select name='role' className="form-select form-select-sm" onChange={handleChange}>
+                            <select name='role' className="form-select form-select-sm">
                                 <option defaultValue>Role</option>
                                 <option value="User">User</option>
                                 <option value="Offical">Offical</option>

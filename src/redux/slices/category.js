@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Api_Address from "../../env";
+import Api_Address1 from "../../env1";
 
 const initialState = {
     categories: [],
@@ -22,7 +22,7 @@ export const creatCategory = createAsyncThunk(
     "category/create",
     async (formData) => {
         debugger
-        await axios.post(`${Api_Address}/api/v1/category/create`, formData, {
+        await axios.post(`${Api_Address1}/api/v1/category/create`, formData, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -37,7 +37,7 @@ export const creatCategory = createAsyncThunk(
 export const updateCategory = createAsyncThunk(
     "category/update",
     async (category) => {
-        await axios.post(`${Api_Address}/api/category/edit/${category.id}`, category, {
+        await axios.post(`${Api_Address1}/api/category/edit/${category.id}`, category, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -54,7 +54,7 @@ export const updateCategory = createAsyncThunk(
 export const deleteCategory = createAsyncThunk(
     "category/delete",
     async (id) => {
-        const { data } = await axios.delete(`${Api_Address}/api/v1/category/delete/${id}`, {
+        const { data } = await axios.delete(`${Api_Address1}/api/v1/category/delete/${id}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },

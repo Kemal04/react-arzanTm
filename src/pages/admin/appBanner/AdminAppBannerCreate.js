@@ -37,7 +37,6 @@ const AdminAppBannerCreate = () => {
         pageId: "1",
         welayat: "",
         type: "App",
-        checked: "1",
     })
 
     const handleChange = (e) => {
@@ -58,7 +57,6 @@ const AdminAppBannerCreate = () => {
         formData.append('pageId', banner.pageId)
         formData.append('welayat', banner.welayat)
         formData.append('type', banner.type)
-        formData.append('checked', banner.checked)
 
         if (!img) {
             toast.error("Surat yok")

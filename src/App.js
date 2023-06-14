@@ -46,6 +46,8 @@ const App = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    const role = localStorage.getItem("role")
+
     return (
         <>
             <AuthContext.Provider value={{ authState, setAuthState }}>
@@ -84,42 +86,45 @@ const App = () => {
                                 <Route path='/habarnama-gos' element={<NoticeCreate />} />
                             </Route>
 
-                            <Route path='/admin' element={<AdminLayout />} >
-                                <Route path='' element={<Admin />} />
+                            {
+                                role === "Admin" &&
+                                <Route path='/admin' element={<AdminLayout />} >
+                                    <Route path='' element={<Admin />} />
 
-                                <Route path='offical/users' element={<AdminOffical />} />
-                                <Route path='users' element={<AdminUsers />} />
-                                <Route path='top-users' element={<AdminTopUsers />} />
-                                <Route path='user-create' element={<AdminUserCreate />} />
-                                <Route path='user-edit/:userId' element={<AdminUserEdit />} />
+                                    <Route path='offical/users' element={<AdminOffical />} />
+                                    <Route path='users' element={<AdminUsers />} />
+                                    <Route path='top-users' element={<AdminTopUsers />} />
+                                    <Route path='user-create' element={<AdminUserCreate />} />
+                                    <Route path='user-edit/:userId' element={<AdminUserEdit />} />
 
-                                <Route path='discounts' element={<AdminDiscounts />} />
-                                <Route path='discount-create' element={<AdminDiscountCreate />} />
-                                <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
+                                    <Route path='discounts' element={<AdminDiscounts />} />
+                                    <Route path='discount-create' element={<AdminDiscountCreate />} />
+                                    <Route path='discount-edit/:discountId' element={<AdminDiscountEdit />} />
 
-                                <Route path='gallery/photo' element={<AdminPhoto />} />
-                                <Route path='gallery/photo-create' element={<AdminPhotoCreate />} />
-                                <Route path='gallery/video' element={<AdminVideo />} />
-                                <Route path='gallery/video-create' element={<AdminVideoCreate />} />
+                                    <Route path='gallery/photo' element={<AdminPhoto />} />
+                                    <Route path='gallery/photo-create' element={<AdminPhotoCreate />} />
+                                    <Route path='gallery/video' element={<AdminVideo />} />
+                                    <Route path='gallery/video-create' element={<AdminVideoCreate />} />
 
-                                {/* WEB */}
-                                <Route path='web/banners' element={<AdminWebBanners />} />
-                                <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
-                                <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
+                                    {/* WEB */}
+                                    <Route path='web/banners' element={<AdminWebBanners />} />
+                                    <Route path='web/banner-create' element={<AdminWebBannerCreate />} />
+                                    <Route path='web/banner-edit/:bannerId' element={<AdminWebBannerEdit />} />
 
-                                <Route path='web/categories' element={<AdminWebCategory />} />
-                                <Route path='web/category-create' element={<AdminWebCategoryCreate />} />
+                                    <Route path='web/categories' element={<AdminWebCategory />} />
+                                    <Route path='web/category-create' element={<AdminWebCategoryCreate />} />
 
-                                {/* APP */}
-                                <Route path='app/banners' element={<AdminAppBanners />} />
-                                <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
+                                    {/* APP */}
+                                    <Route path='app/banners' element={<AdminAppBanners />} />
+                                    <Route path='app/banner-create' element={<AdminAppBannerCreate />} />
 
-                                <Route path='app/categories' element={<AdminAppCategory />} />
-                                <Route path='app/category-create' element={<AdminAppCategoryCreate />} />
-                            </Route>
+                                    <Route path='app/categories' element={<AdminAppCategory />} />
+                                    <Route path='app/category-create' element={<AdminAppCategoryCreate />} />
+                                </Route>
+                            }
 
                             <Route path='/admin/login' element={<AdminLogin />} />
-                            
+
                         </Routes>
                     </Router>
                 </ThemeContextProvider>

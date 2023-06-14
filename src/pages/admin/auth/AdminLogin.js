@@ -35,6 +35,7 @@ const AdminLogin = () => {
                     toast.success(res.data.success)
                     localStorage.setItem("accessToken", res.data.token)
                     localStorage.setItem("email", email)
+                    localStorage.setItem("role", res.data.role)
                     setAuthState({
                         name_surname: res.data.name_surname,
                         id: res.data.id,

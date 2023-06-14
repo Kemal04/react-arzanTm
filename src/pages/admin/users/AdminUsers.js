@@ -81,6 +81,7 @@ const AdminUsers = () => {
                                 <th className='border' scope="col">Avatar Username</th>
                                 <th className='border' scope="col">Phone</th>
                                 <th className='border' scope="col">Role</th>
+                                <th className='border' scope="col">Verified</th>
                                 <th className='border' scope="col">Date of Registration</th>
                                 <th className='border' scope="col">Action</th>
                             </tr>
@@ -90,17 +91,18 @@ const AdminUsers = () => {
                                 users.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((user, index) => (
                                     user.role === "User" && (
                                         <tr key={index}>
-                                            <th scope="row" style={{ fontSize: "15px" }}>35477</th>
+                                            <th scope="row" style={{ fontSize: "15px" }}>{index + 1}</th>
                                             <td>
                                                 <div className='d-flex align-items-center'>
-                                                    <img src={user_2} alt="" style={{ width: "40px" }} />
+                                                    <img src={user.profile_photo} alt="" style={{ width: "40px" }} />
                                                     <div className='ms-2'>
                                                         <div style={{ fontSize: "15px", fontWeight: "700" }}>{user.name}</div>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <th>+993 {user.phone_num}</th>
+                                            <th>+993 {user.phone}</th>
                                             <th>{user.role}</th>
+                                            <th className={user.verified ? "text-success" : "text-danger"}>{user.verified}</th>
                                             <th>{moment(user.createdAt).format("DD-MM-YYYY")}</th>
                                             <th>
                                                 <div className='d-flex align-items-center justify-content-between'>

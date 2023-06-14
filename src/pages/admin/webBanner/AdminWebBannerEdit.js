@@ -4,7 +4,7 @@ import img_icon from '../../../assets/icons/img.svg'
 import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-import Api_Address from '../../../env'
+import Api_Address1 from '../../../env1'
 
 const AdminWebBannerEdit = () => {
 
@@ -50,7 +50,7 @@ const AdminWebBannerEdit = () => {
     }
 
     useEffect(() => {
-        axios.get(`${Api_Address}/api/v1/banner/edit/${bannerId}`, {
+        axios.get(`${Api_Address1}/api/v1/banner/edit/${bannerId}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -107,7 +107,7 @@ const AdminWebBannerEdit = () => {
             toast.error("Page saýlaň")
         }
         else {
-            await axios.post(`${Api_Address}/api/v1/banner/edit/${bannerId}`, formData, {
+            await axios.post(`${Api_Address1}/api/v1/banner/edit/${bannerId}`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                     accessToken: localStorage.getItem("accessToken"),
@@ -120,21 +120,6 @@ const AdminWebBannerEdit = () => {
             })
         }
     }
-
-    const [pages, setPages] = useState([])
-
-    useEffect(() => {
-        const fetchData = async () => {
-            await axios.get(`${Api_Address}/api/v1/page`, {
-                headers: {
-                    accessToken: localStorage.getItem("accessToken"),
-                }
-            }).then((res) => {
-                setPages(res.data.pages)
-            })
-        }
-        fetchData()
-    }, [])
 
     return (
         <>
@@ -216,9 +201,9 @@ const AdminWebBannerEdit = () => {
                         <div className='col-xl-3 ms-auto'>
                             <select name='pageId' className="form-select form-select-sm" onChange={handleChange}>
                                 <option value={banner.pageId} defaultValue>{banner.pageId}</option>
-                                {pages.map((page, index) => (
+                                {/* {pages.map((page, index) => (
                                     <option key={index} value={page.id}>{page.name}</option>
-                                ))}
+                                ))} */}
                             </select>
                         </div>
 
