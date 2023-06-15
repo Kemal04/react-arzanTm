@@ -13,16 +13,15 @@ const initialState = {
 export const getAllCategories = createAsyncThunk(
     "categories/getAll",
     async () => {
-        const { data } = await axios.get(`http://it.net.tm:8888/categories`)
-        return data
+        const { data } = await axios.get(`https://it.net.tm/arzanapi/api/v1/category`)
+        return data.category
     }
 );
 
 export const creatCategory = createAsyncThunk(
     "category/create",
-    async (formData) => {
-        debugger
-        await axios.post(`${Api_Address1}/api/v1/category/create`, formData, {
+    async (category) => {
+        await axios.post(`https://it.net.tm/arzanapi/api/v1/category/create`, category, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -41,7 +40,7 @@ export const updateCategory = createAsyncThunk(
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
-        })
+        })  
             .then((res) => {
                 toast.success(res.data.success)
             }).catch((res) => {

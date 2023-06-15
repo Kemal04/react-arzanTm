@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
-import Api_Address1 from "../../env1";
 
 const initialState = {
     discounts: [],
@@ -13,7 +12,7 @@ const initialState = {
 export const getAllDiscounts = createAsyncThunk(
     "discounts/getAll",
     async () => {
-        const { data } = await axios.get(`${Api_Address1}/api/v1/discount`)
+        const { data } = await axios.get(`https://it.net.tm/arzanapi/api/v1/discount`)
         return data.discounts
     }
 );
@@ -21,7 +20,7 @@ export const getAllDiscounts = createAsyncThunk(
 export const createDiscount = createAsyncThunk(
     "discount/create",
     async (formData) => {
-        await axios.post(`${Api_Address1}/api/v1/discount/create`, formData, {
+        await axios.post(`https://it.net.tm/arzanapi/api/v1/discount/create`, formData, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -35,8 +34,8 @@ export const createDiscount = createAsyncThunk(
 
 export const updateDiscount = createAsyncThunk(
     "discount/update",
-    async (discount) => {
-        await axios.post(`${Api_Address1}/api/discount/edit/${discount.id}`, discount, {
+    async ({ formData, discountId }) => {
+        await axios.post(`https://it.net.tm/arzanapi/api/v1/discount/edit/${discountId}`, formData, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },
@@ -53,7 +52,7 @@ export const updateDiscount = createAsyncThunk(
 export const deleteDiscount = createAsyncThunk(
     "discount/delete",
     async (id) => {
-        const { data } = await axios.delete(`${Api_Address1}/api/v1/discount/delete/${id}`, {
+        const { data } = await axios.delete(`https://it.net.tm/arzanapi/api/v1/discount/delete/${id}`, {
             headers: {
                 accessToken: localStorage.getItem("accessToken"),
             },

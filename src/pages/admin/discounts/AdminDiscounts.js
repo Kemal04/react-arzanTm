@@ -1,13 +1,11 @@
 import React, { useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClipboard, faClipboardList, faPenAlt, faPlus, faStar, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { faClipboardList, faEye, faPenAlt, faPlus, faTrashAlt, faUserCircle } from '@fortawesome/free-solid-svg-icons'
 import { ThemeContext } from '../../../context/ThemeContext'
 import search from '../../../assets/icons/search.svg'
-import user_2 from '../../../assets/icons/user-2.png'
 import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import moment from 'moment/moment'
 import { deleteDiscount, getAllDiscounts } from '../../../redux/slices/discount'
 
 const AdminDiscounts = () => {
@@ -18,6 +16,8 @@ const AdminDiscounts = () => {
     const dispatch = useDispatch()
 
     const { discounts } = useSelector(state => state.discounts)
+
+    console.log(discounts);
 
     useEffect(() => {
         dispatch(getAllDiscounts())
@@ -89,10 +89,11 @@ const AdminDiscounts = () => {
                         <thead>
                             <tr className="bg-light" style={{ fontSize: "12px" }}>
                                 <th className='border' scope="col">#</th>
-                                <th className='border' scope="col">Image Title</th>
-                                <th className='border' scope="col">Note</th>
-                                <th className='border' scope="col">State</th>
-                                <th className='border' scope="col">View</th>
+                                <th className='border' scope="col">Image</th>
+                                <th className='border' scope="col">Title</th>
+                                <th className='border' scope="col">Price</th>
+                                <th className='border' scope="col">Discount</th>
+                                <th className='border' scope="col">Phone Number</th>
                                 <th className='border' scope="col">Action</th>
                             </tr>
                         </thead>
@@ -100,25 +101,19 @@ const AdminDiscounts = () => {
                             {
                                 discounts.slice().sort((a, b) => (a.id < b.id) ? 1 : -1).map((discount, index) => (
                                     <tr key={index}>
+                                        <th>{index + 1}</th>
+                                        <td><img src={discount.discount_img} alt="" style={{ width: "40px" }} /></td>
                                         <th>{discount.title}</th>
-                                        {/* <th scope="row" style={{ fontSize: "15px" }}>35477</th>
-                                            <td>
-                                                <div className='d-flex align-items-center'>
-                                                    <img src={user_2} alt="" style={{ width: "40px" }} />
-                                                    <div className='ms-2'>
-                                                        <div style={{ fontSize: "15px", fontWeight: "700" }}>{user.name}</div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <th>+993 {user.phone_num}</th>
-                                            <th>{user.role}</th>
-                                            <th>{moment(user.createdAt).format("DD-MM-YYYY")}</th>
-                                            <th>
-                                                <div className='d-flex align-items-center justify-content-between'>
-                                                    <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} onClick={() => handleDelete(user.id)} />
-                                                    <Link to={`/admin/user-edit/${user.id}`} className='text-decoration-none'><FontAwesomeIcon icon={faPenAlt} className='text-green' /></Link>
-                                                </div>
-                                            </th> */}
+                                        <th className={discount.discount_price ? "text-decoration-line-through" : null}>{discount.price}</th>
+                                        <th>{discount.discount_price}</th>
+                                        <th>+993 {discount.phone_num}</th>
+                                        <th>
+                                            <div className='d-flex align-items-center justify-content-between'>
+                                                <Link to={`/admin/discount/${discount.id}`} className='text-decoration-none'><FontAwesomeIcon icon={faEye} className='text-primary' /></Link>
+                                                <Link to={`/admin/discount-edit/${discount.id}`} className='text-decoration-none'><FontAwesomeIcon icon={faPenAlt} className='text-green' /></Link>
+                                                <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} onClick={() => handleDelete(discount.id)} />
+                                            </div>
+                                        </th>
                                     </tr>
 
                                 ))

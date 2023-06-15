@@ -14,7 +14,6 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { NotificationRead } from './pages/interface'
 import axios from 'axios'
-import Api_Address1 from './env1'
 import { AuthContext } from './context/AuthContext'
 
 const App = () => {
@@ -27,9 +26,9 @@ const App = () => {
     });
 
     useEffect(() => {
-        axios.get(`${Api_Address1}/userinformation`, {
+        axios.get(`https://it.net.tm/arzanapi/api/v1/current_user`, {
             headers: {
-                accessToken: localStorage.getItem("accessToken"),
+                accessToken: localStorage.getItem("token"),
             },
         }).then((res) => {
             if (res.data.error) {

@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import axios from 'axios'
 import { AuthContext } from '../../../context/AuthContext'
-import Api_Address1 from '../../../env1'
 
 const AdminLogin = () => {
 
@@ -28,14 +27,12 @@ const AdminLogin = () => {
             toast.error("Açar sözüňizi ýazyň!")
         }
         else {
-            await axios.post(`${Api_Address1}/adminlogin`, data).then((res) => {
+            await axios.post(`https://it.net.tm/arzanapi/api/v1/rootman`, data).then((res) => {
                 if (res.data.error) {
                     toast.error(res.data.error)
                 } else {
                     toast.success(res.data.success)
                     localStorage.setItem("token", res.data.token)
-                    localStorage.setItem("email", email)
-                    localStorage.setItem("role", res.data.role)
                     setAuthState({
                         name_surname: res.data.name_surname,
                         id: res.data.id,

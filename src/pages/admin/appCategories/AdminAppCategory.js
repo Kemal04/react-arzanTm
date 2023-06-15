@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import img_1 from '../../../assets/category/1.png'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteCategory, getAllCategories } from '../../../redux/slices/category'
+import moment from 'moment/moment'
 
 const AdminAppCategory = () => {
 
@@ -109,7 +110,7 @@ const AdminAppCategory = () => {
                                             </div>
                                         </th>
                                         <th>1</th>
-                                        <th>{category.updatedAt}</th>
+                                        <th>{moment(category.createdAt).format("DD-MM-YYYY")}</th>
                                         <th>
                                             <div className='d-flex align-items-center justify-content-between'>
                                                 <FontAwesomeIcon icon={faTrashAlt} className='text-danger' style={{ cursor: "pointer" }} />

@@ -40,7 +40,7 @@ const AdminDiscountCreate = () => {
         isPinned: "",
         publishDiscount: "",
         welayat: "",
-        subcategoryId: "",
+        subcategoryId: "4",
         checked: "1",
     })
 

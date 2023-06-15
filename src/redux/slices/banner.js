@@ -13,20 +13,19 @@ const initialState = {
 export const getAllBanners = createAsyncThunk(
     "banners/getAll",
     async () => {
-        const { data } = await axios.get(`${Api_Address1}/banners`)
-        return data
+        const { data } = await axios.get(`https://it.net.tm/arzanapi/api/v1/banner`)
+        return data.banners
     }
 );
 
 export const creatBanner = createAsyncThunk(
     "banner/create",
     async (formData) => {
-        const { data } = await axios.post(`${Api_Address1}/adminbannerupload`, formData)
-            .then(() => {
-                console.log(data);
-                toast.success(data.success)
-            }).catch(() => {
-                toast.error(data.error)
+        await axios.post(`https://it.net.tm/arzanapi/api/v1/banner/create`, formData)
+            .then((res) => {
+                toast.success(res.data.success)
+            }).catch((res) => {
+                toast.error(res.data.error)
             });
     }
 );
